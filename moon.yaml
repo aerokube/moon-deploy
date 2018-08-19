@@ -1,0 +1,649 @@
+apiVersion: rbac.authorization.k8s.io/v1beta1
+kind: ClusterRoleBinding
+metadata:
+  name: moon-rbac
+subjects:
+  - kind: ServiceAccount
+    name: default
+    namespace: moon
+roleRef:
+  kind: ClusterRole
+  name: cluster-admin
+  apiGroup: rbac.authorization.k8s.io
+---
+apiVersion: v1
+kind: Namespace
+metadata:
+  name: moon
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: moon
+  namespace: moon
+spec:
+  selector:
+    app: moon
+  ports:
+  - name: "moon"
+    protocol: TCP
+    port: 4444
+  - name: "moon-ui"
+    protocol: TCP
+    port: 8080
+  type: LoadBalancer
+---
+apiVersion: v1
+kind: ResourceQuota
+metadata:
+  name: max-moon-sessions
+  namespace: moon
+spec:
+  hard:
+    pods: "6"
+---
+apiVersion: apps/v1beta1
+kind: Deployment
+metadata:
+  name: moon
+  namespace: moon
+spec:
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: moon
+    spec:
+      containers:
+      - name: moon
+        image: aerokube/moon:latest
+        args: ["-namespace", "moon", "-license-file", "/license/license.key"]
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.25"
+            memory: "64Mi"
+        ports:
+        - containerPort: 4444
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+          readOnly: true
+        - name: users
+          mountPath: /users
+          readOnly: true
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: moon-api
+        image: aerokube/moon-api:latest
+        args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "128Mi"
+          requests:
+            cpu: "0.25"
+            memory: "64Mi"
+        ports:
+        - containerPort: 8888
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: selenoid-ui
+        image: aerokube/selenoid-ui:1.6.1
+        args: ["-selenoid-uri", "http://localhost:8888"]
+        resources:
+          limits:
+            cpu: "0.5"
+            memory: "512Mi"
+          requests:
+            cpu: "0.25"
+            memory: "64Mi"
+        ports:
+        - name: selenoid-ui
+          containerPort: 8080
+      volumes:
+      - name: quota
+        configMap:
+          name: quota
+      - name: users
+        secret:
+          secretName: users
+      - name: license-key
+        secret:
+          secretName: licensekey
+      volumes:
+      - name: quota
+        configMap:
+          name: quota
+      - name: users
+        secret:
+          secretName: users
+      - name: license-key
+        secret:
+          secretName: licensekey
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quota
+  namespace: moon
+data:
+  browsers.json: |
+    {
+      "firefox": {
+        "default": "61.0",
+        "versions": {
+          "61.0": {
+            "image": "selenoid/vnc_firefox:61.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "60.0": {
+            "image": "selenoid/vnc_firefox:60.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "59.0": {
+            "image": "selenoid/vnc_firefox:59.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "58.0": {
+            "image": "selenoid/vnc_firefox:58.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "57.0": {
+            "image": "selenoid/vnc_firefox:57.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "56.0": {
+            "image": "selenoid/vnc_firefox:56.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "55.0": {
+            "image": "selenoid/vnc_firefox:55.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "54.0": {
+            "image": "selenoid/vnc_firefox:54.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "53.0": {
+            "image": "selenoid/vnc_firefox:53.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "52.0": {
+            "image": "selenoid/vnc_firefox:52.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "51.0": {
+            "image": "selenoid/vnc_firefox:51.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "50.0": {
+            "image": "selenoid/vnc_firefox:50.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "49.0": {
+            "image": "selenoid/vnc_firefox:49.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "48.0": {
+            "image": "selenoid/vnc_firefox:48.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "47.0": {
+            "image": "selenoid/vnc_firefox:47.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "46.0": {
+            "image": "selenoid/vnc_firefox:46.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "45.0": {
+            "image": "selenoid/vnc_firefox:45.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "44.0": {
+            "image": "selenoid/vnc_firefox:44.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "43.0": {
+            "image": "selenoid/vnc_firefox:43.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "42.0": {
+            "image": "selenoid/vnc_firefox:42.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "41.0": {
+            "image": "selenoid/vnc_firefox:41.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "40.0": {
+            "image": "selenoid/vnc_firefox:40.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "39.0": {
+            "image": "selenoid/vnc_firefox:39.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "38.0": {
+            "image": "selenoid/vnc_firefox:38.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "37.0": {
+            "image": "selenoid/vnc_firefox:37.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "36.0": {
+            "image": "selenoid/vnc_firefox:36.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "35.0": {
+            "image": "selenoid/vnc_firefox:35.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "34.0": {
+            "image": "selenoid/vnc_firefox:34.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "33.0": {
+            "image": "selenoid/vnc_firefox:33.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "32.0": {
+            "image": "selenoid/vnc_firefox:32.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "31.0": {
+            "image": "selenoid/vnc_firefox:31.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "30.0": {
+            "image": "selenoid/vnc_firefox:30.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "29.0": {
+            "image": "selenoid/vnc_firefox:29.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "28.0": {
+            "image": "selenoid/vnc_firefox:28.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "27.0": {
+            "image": "selenoid/vnc_firefox:27.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "26.0": {
+            "image": "selenoid/vnc_firefox:26.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "25.0": {
+            "image": "selenoid/vnc_firefox:25.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "24.0": {
+            "image": "selenoid/vnc_firefox:24.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "23.0": {
+            "image": "selenoid/vnc_firefox:23.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "22.0": {
+            "image": "selenoid/vnc_firefox:22.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "21.0": {
+            "image": "selenoid/vnc_firefox:21.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "20.0": {
+            "image": "selenoid/vnc_firefox:20.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "19.0": {
+            "image": "selenoid/vnc_firefox:19.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "18.0": {
+            "image": "selenoid/vnc_firefox:18.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "17.0": {
+            "image": "selenoid/vnc_firefox:17.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "16.0": {
+            "image": "selenoid/vnc_firefox:16.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "15.0": {
+            "image": "selenoid/vnc_firefox:15.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "14.0": {
+            "image": "selenoid/vnc_firefox:14.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "13.0": {
+            "image": "selenoid/vnc_firefox:13.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "12.0": {
+            "image": "selenoid/vnc_firefox:12.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "11.0": {
+            "image": "selenoid/vnc_firefox:11.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "10.0": {
+            "image": "selenoid/vnc_firefox:10.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "9.0": {
+            "image": "selenoid/vnc_firefox:9.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "8.0": {
+            "image": "selenoid/vnc_firefox:8.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "7.0": {
+            "image": "selenoid/vnc_firefox:7.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "6.0": {
+            "image": "selenoid/vnc_firefox:6.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "5.0": {
+            "image": "selenoid/vnc_firefox:5.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "4.0": {
+            "image": "selenoid/vnc_firefox:4.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "3.6": {
+            "image": "selenoid/vnc_firefox:3.6",
+            "port": "4444",
+            "path": "/wd/hub"
+          }
+        }
+      },
+      "chrome": {
+        "default": "68.0",
+        "versions": {
+          "68.0": {
+            "image": "selenoid/vnc_chrome:68.0",
+            "port": "4444"
+          },
+          "67.0": {
+            "image": "selenoid/vnc_chrome:67.0",
+            "port": "4444"
+          },
+          "66.0": {
+            "image": "selenoid/vnc_chrome:66.0",
+            "port": "4444"
+          },
+          "65.0": {
+            "image": "selenoid/vnc_chrome:65.0",
+            "port": "4444"
+          },
+          "64.0": {
+            "image": "selenoid/vnc_chrome:64.0",
+            "port": "4444"
+          },
+          "63.0": {
+            "image": "selenoid/vnc_chrome:63.0",
+            "port": "4444"
+          },
+          "62.0": {
+            "image": "selenoid/vnc_chrome:62.0",
+            "port": "4444"
+          },
+          "61.0": {
+            "image": "selenoid/vnc_chrome:61.0",
+            "port": "4444"
+          },
+          "60.0": {
+            "image": "selenoid/vnc_chrome:60.0",
+            "port": "4444"
+          },
+          "59.0": {
+            "image": "selenoid/vnc_chrome:59.0",
+            "port": "4444"
+          },
+          "58.0": {
+            "image": "selenoid/vnc_chrome:58.0",
+            "port": "4444"
+          },
+          "57.0": {
+            "image": "selenoid/vnc_chrome:57.0",
+            "port": "4444"
+          },
+          "56.0": {
+            "image": "selenoid/vnc_chrome:56.0",
+            "port": "4444"
+          },
+          "55.0": {
+            "image": "selenoid/vnc_chrome:55.0",
+            "port": "4444"
+          },
+          "54.0": {
+            "image": "selenoid/vnc_chrome:54.0",
+            "port": "4444"
+          },
+          "53.0": {
+            "image": "selenoid/vnc_chrome:53.0",
+            "port": "4444"
+          },
+          "52.0": {
+            "image": "selenoid/vnc_chrome:52.0",
+            "port": "4444"
+          },
+          "51.0": {
+            "image": "selenoid/vnc_chrome:51.0",
+            "port": "4444"
+          },
+          "50.0": {
+            "image": "selenoid/vnc_chrome:50.0",
+            "port": "4444"
+          },
+          "49.0": {
+            "image": "selenoid/vnc_chrome:49.0",
+            "port": "4444"
+          },
+          "48.0": {
+            "image": "selenoid/vnc_chrome:48.0",
+            "port": "4444"
+          }
+        }
+      },
+      "opera": {
+        "default": "52.0",
+        "versions": {
+          "52.0": {
+            "image": "selenoid/vnc_opera:52.0",
+            "port": "4444"
+          },
+          "52.0": {
+            "image": "selenoid/vnc_opera:52.0",
+            "port": "4444"
+          },
+          "52.0": {
+            "image": "selenoid/vnc_opera:52.0",
+            "port": "4444"
+          },
+          "52.0": {
+            "image": "selenoid/vnc_opera:52.0",
+            "port": "4444"
+          },
+          "51.0": {
+            "image": "selenoid/vnc_opera:51.0",
+            "port": "4444"
+          },
+          "50.0": {
+            "image": "selenoid/vnc_opera:50.0",
+            "port": "4444"
+          },
+          "49.0": {
+            "image": "selenoid/vnc_opera:49.0",
+            "port": "4444"
+          },
+          "48.0": {
+            "image": "selenoid/vnc_opera:48.0",
+            "port": "4444"
+          },
+          "47.0": {
+            "image": "selenoid/vnc_opera:47.0",
+            "port": "4444"
+          },
+          "46.0": {
+            "image": "selenoid/vnc_opera:46.0",
+            "port": "4444"
+          },
+          "45.0": {
+            "image": "selenoid/vnc_opera:45.0",
+            "port": "4444"
+          },
+          "44.0": {
+            "image": "selenoid/vnc_opera:44.0",
+            "port": "4444"
+          },
+          "43.0": {
+            "image": "selenoid/vnc_opera:43.0",
+            "port": "4444"
+          },
+          "42.0": {
+            "image": "selenoid/vnc_opera:42.0",
+            "port": "4444"
+          },
+          "41.0": {
+            "image": "selenoid/vnc_opera:41.0",
+            "port": "4444"
+          },
+          "40.0": {
+            "image": "selenoid/vnc_opera:40.0",
+            "port": "4444"
+          },
+          "39.0": {
+            "image": "selenoid/vnc_opera:39.0",
+            "port": "4444"
+          },
+          "38.0": {
+            "image": "selenoid/vnc_opera:38.0",
+            "port": "4444"
+          },
+          "37.0": {
+            "image": "selenoid/vnc_opera:37.0",
+            "port": "4444"
+          },
+          "36.0": {
+            "image": "selenoid/vnc_opera:36.0",
+            "port": "4444"
+          },
+          "35.0": {
+            "image": "selenoid/vnc_opera:35.0",
+            "port": "4444"
+          },
+          "34.0": {
+            "image": "selenoid/vnc_opera:34.0",
+            "port": "4444"
+          },
+          "33.0": {
+            "image": "selenoid/vnc_opera:33.0",
+            "port": "4444"
+          },
+          "12.1": {
+            "image": "selenoid/vnc:opera_12.16",
+            "port": "4444",
+            "path": "/wd/hub"
+          }
+        }
+      }
+    }
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  creationTimestamp: 2018-08-19T12:19:03Z
+  name: users
+  namespace: moon
+data:
+  users.htpasswd: ""
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: licensekey
+  namespace: moon
+data:
+  license.key: TUcxUlNWZHBjMlo2WWpkUVFWWmpkMmxwZWk5S01rZDFUM2R6TVRGdUwxZGxSalZTYzNOT01VY3haazlRYVV4V2EzUTVTbkJJYWtJeGEwOXdXbTB2VkZKcVEwdHNhMjF4VkcxT09EVlJabmxRYmpCalZtUkhWV0ZMYW1wVE9GRjFhM1ZMUlhSUGNFVXdibkV5U0cxNlFXRlFXSFJEWVRWak1tOWpaelpGYVVKcWVGZDVPREU0VUZCSFp6TkNOV3BDWVhsaGEzb3dlRkJzY0ZsMVJuQjBWMFUxUTNGd09HbDVWRGRLVGs5YWJHNWFTbWxQZG5SbVpERnZTRzFuTm5Wd1ZYQkxWMkU0Um1Zd1dIY3JlRVJJUjI5WlRFMVhUbGRQYjFodlQyWkNVblpwY0RoUFdXMDVhMUZxTjBoQldXVk9ZVXRMVDFsUFdsVkphMWRzYjFneGRqTk9UMWh0VEZwWmFsaHNRM2gxUTNWNk5XaGlRakl3U2pWSVkwSlRZblp5Ym05elltMTRSWEZrU0ZwUVdWQktXVWxLVHpadlZsQm5PRGhRZUZFcloxRXlUazVzV0c4MlRDOVhlWFUzYWlzck5VMHJTRWRQY1hsT1NFZGxOR3g0Wm0xbk5WaGpNV2xuTmtOMU9DdE5TVlZZUnpOcVVsbHFPVVk0WkhkUmVXcFNiRk5NTm1GcEwyZFJRbmMzVHpZMFUwbHdkVkYyZDI5allpOWtWekZTWVdGUlZrZDNaWFlyT1ZkSU5HOHpSV1JyWWtWT05VaFJUbVEyTVV4c1VuRk5kbXRLZVdWSFYyMXRWbFZVWjJkc01EUnNURkZMVG1aTlZHODFMMkpWYWtOQk1HaE5lRVI1VkhOSmRtVlJSR0ZNTWtsdlRXcHZjRms0VkVSbEsxVTJiVUp2VURWeE5WWXJjQ3REUVZoamJqWXhRbFJhVVZwMGJtTnFMMEpCVmtkTk9FWjROVzlyV0hSWVNWQXhVa1kwYTFWQ2NrWlZUREZ5VFdGMVZrWnFTazV4VTFwTFQyOTNkVXBNVFRnMlNFWjBTbGQwZVVsUkszWlpabTFwWlUweE0yOTJNblZsZURCb1JsaFJkRmt2TWt0MWRVaGhOM2RLVjJwRlQwcHFhRVZ6VGpoWFN5ODJabEZGYmk5RVF6Y3JOa3czTnpobGJtVlZaMmxMWjNWRmJqbE1NWFpNWVZaNVZXdFFhV2M5TzJWNVNuTmhWMDVzWW01T2JGcFRTVFpKYTFKc1dtMUdNV0pJVVdsTVEwcDNZMjA1YTJSWFRqQkphbTlwVkZjNWRtSnBTWE5KYlRGb1pVWk9iR016VG5CaU1qVjZTV3B2TUdaUlBUMD0K
+
