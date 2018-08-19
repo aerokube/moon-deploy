@@ -41,6 +41,7 @@ metadata:
 spec:
   hard:
     pods: "6"
+  scopes: ["NotTerminating"]
 ---
 apiVersion: apps/v1beta1
 kind: Deployment
@@ -633,7 +634,6 @@ data:
 apiVersion: v1
 kind: Secret
 metadata:
-  creationTimestamp: 2018-08-19T12:19:03Z
   name: users
   namespace: moon
 data:
