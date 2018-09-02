@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: moon
-        image: aerokube/moon:latest
+        image: aerokube/moon:latest-release
         args: ["-namespace", "moon", "-license-file", "/license/license.key"]
         resources:
           limits:
@@ -79,7 +79,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:latest
+        image: aerokube/moon-api:latest-release
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         resources:
           limits:
