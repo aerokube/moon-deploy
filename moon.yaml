@@ -57,7 +57,7 @@ spec:
     spec:
       containers:
       - name: moon
-        image: aerokube/moon:latest-release
+        image: aerokube/moon:1.1.7
         args: ["-namespace", "moon", "-license-file", "/license/license.key"]
         resources:
           limits:
@@ -79,7 +79,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:latest-release
+        image: aerokube/moon-api:1.1.7
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         resources:
           limits:
@@ -109,16 +109,6 @@ spec:
         ports:
         - name: selenoid-ui
           containerPort: 8080
-      volumes:
-      - name: quota
-        configMap:
-          name: quota
-      - name: users
-        secret:
-          secretName: users
-      - name: license-key
-        secret:
-          secretName: licensekey
       volumes:
       - name: quota
         configMap:
