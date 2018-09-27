@@ -437,7 +437,7 @@ data:
         "default": "69.0",
         "versions": {
           "69.0": {
-            "image": "selenoid/vnc_chrome:68.0",
+            "image": "selenoid/vnc_chrome:69.0",
             "port": "4444"
           },
           "68.0": {
