@@ -119,16 +119,6 @@ spec:
       - name: license-key
         secret:
           secretName: licensekey
-      volumes:
-      - name: quota
-        configMap:
-          name: quota
-      - name: users
-        secret:
-          secretName: users
-      - name: license-key
-        secret:
-          secretName: licensekey
 ---
 apiVersion: v1
 kind: ConfigMap
