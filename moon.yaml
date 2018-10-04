@@ -527,8 +527,12 @@ data:
         }
       },
       "opera": {
-        "default": "55.0",
+        "default": "56.0",
         "versions": {
+          "56.0": {
+            "image": "selenoid/vnc_opera:56.0",
+            "port": "4444"
+          },
           "55.0": {
             "image": "selenoid/vnc_opera:55.0",
             "port": "4444"
