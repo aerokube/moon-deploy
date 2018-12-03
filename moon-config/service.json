@@ -1,7 +1,12 @@
 {
+  "s3": {
+    "endpoint": "https://storage.googleapis.com",
+    "bucketName": "moon-test",
+    "version": "S3v2"
+  },
   "images": {
-    "videoRecorder": "aerokube/moon-video-recorder:devel",
-    "defender": "aerokube/defender:latest-release",
-    "logger": "aerokube/logger:latest-release"
+    "videoRecorder": "my-registry.example.com/moon/video-recorder:latest-release",
+    "defender": "my-registry.example.com/moon/defender:latest-release",
+    "logger": "my-registry.example.com/moon/logger:latest-release"
   }
 }
