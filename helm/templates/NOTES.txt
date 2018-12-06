@@ -1,0 +1,6 @@
+Access Moon web interface at http://{{ .Values.ingress.host }}
+
+Run a test against http://{{ .Values.ingress.host }}:{{ .Values.moon.port }}/wd/hub
+
+Create a sample session with the follwing command
+$ curl http://{{ .Values.ingress.host }}:{{ .Values.moon.port }}/wd/hub/session -d'{"desiredCapabilities":{"browserName":"firefox", "enableVNC": true}}'
