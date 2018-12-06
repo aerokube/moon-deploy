@@ -1,0 +1,14 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: moon-ui
+  namespace: {{ .Release.Namespace }}
+spec:
+  rules:
+  - host: {{ .Values.ingress.host }}
+    http:
+      paths:
+      - backend:
+          serviceName: moon-ui
+          servicePort: {{ .Values.moonUI.port }}
+        path: {{ .Values.ingress.path }}

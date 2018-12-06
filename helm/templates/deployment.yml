@@ -1,0 +1,64 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: moon
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    matchLabels:
+      app: moon
+  replicas: {{ .Values.replicaCount }}
+  template:
+    metadata:
+      labels:
+        app: moon
+    spec:
+      containers:
+      - name: moon
+        image: {{ .Values.moon.image }}
+        args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key"]
+        resources:
+{{ toYaml .Values.moon.resources | indent 10 }}
+        ports:
+        - containerPort: {{ .Values.moon.port }}
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+          readOnly: true
+        - name: users
+          mountPath: /users
+          readOnly: true
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: moon-api
+        image: {{ .Values.moonAPI.image }}
+        args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key", "-listen", ":{{ .Values.moonAPI.port }}"]
+        resources:
+{{ toYaml .Values.moonAPI.resources | indent 10 }}
+        ports:
+        - containerPort: {{ .Values.moonAPI.port }}
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: moon-ui
+        image: {{ .Values.moonUI.image }}
+        args: ["-selenoid-uri", "http://localhost:{{ .Values.moonAPI.port }}"]
+        resources:
+{{ toYaml .Values.moonAPI.resources | indent 10 }}
+        ports:
+        - name: moon-ui
+          containerPort: {{ .Values.moonUI.port }}
+      volumes:
+      - name: quota
+        configMap:
+          name: quota
+      - name: users
+        secret:
+          secretName: users
+      - name: license-key
+        secret:
+          secretName: licensekey
