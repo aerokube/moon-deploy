@@ -1,3 +1,4 @@
+{{- if .Values.createRole -}}
 apiVersion: rbac.authorization.k8s.io/v1beta1
 kind: Role
 metadata:
@@ -10,3 +11,4 @@ rules:
   - "*"
   verbs:
   - "*"
+{{- end }}
