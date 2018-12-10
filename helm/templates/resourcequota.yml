@@ -1,3 +1,4 @@
+{{- if .Values.createResourceQuota -}}
 apiVersion: v1
 kind: ResourceQuota
 metadata:
@@ -7,3 +8,4 @@ spec:
   hard:
     pods: "{{ .Values.parallelSessions }}"
   scopes: ["NotTerminating"]
+{{- end }}
