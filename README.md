@@ -49,22 +49,17 @@ MG1RSVdpc2Z6YjdQQVZjd2lpei9KMkd1T3dzMTFuL1dlRjVSc3NOMUcxZk9QaUxWa3Q5SnBIakIxa09w
 ```
 For example your key *contains 10 parallel sessions*. To install this key do the following:
 
-1) Encode key contents to [base64](https://en.wikipedia.org/wiki/Base64) - this is required by Kubernetes:
-```
-$ cat ~/license.key | base64
-TUcxUlNWZHBjMlo2WWpkUVFWWmpkMmxwZWk5S01rZDFUM2R6TVRGdUwxZGxSalZTYzNOT01VY3haazlRYVV4V2EzUTVTbkJJYWtJeGEwOXdXbTB2VkZKcVEwdHNhMjF4VkcxT09EVlJabmxRYmpCalZtUkhWV0ZMYW1wVE9GRjFhM1ZMUlhSUGNFVXdibkV5U0cxNlFXRlFXSFJEWVRWak1tOWpaelpGYVVKcWVGZDVPREU0VUZCSFp6TkNOV3BDWVhsaGEzb3dlRkJzY0ZsMVJuQjBWMFUxUTNGd09HbDVWRGRLVGs5YWJHNWFTbWxQZG5SbVpERnZTRzFuTm5Wd1ZYQkxWMkU0Um1Zd1dIY3JlRVJJUjI5WlRFMVhUbGRQYjFodlQyWkNVblpwY0RoUFdXMDVhMUZxTjBoQldXVk9ZVXRMVDFsUFdsVkphMWRzYjFneGRqTk9UMWh0VEZwWmFsaHNRM2gxUTNWNk5XaGlRakl3U2pWSVkwSlRZblp5Ym05elltMTRSWEZrU0ZwUVdWQktXVWxLVHpadlZsQm5PRGhRZUZFcloxRXlUazVzV0c4MlRDOVhlWFUzYWlzck5VMHJTRWRQY1hsT1NFZGxOR3g0Wm0xbk5WaGpNV2xuTmtOMU9DdE5TVlZZUnpOcVVsbHFPVVk0WkhkUmVXcFNiRk5NTm1GcEwyZFJRbmMzVHpZMFUwbHdkVkYyZDI5allpOWtWekZTWVdGUlZrZDNaWFlyT1ZkSU5HOHpSV1JyWWtWT05VaFJUbVEyTVV4c1VuRk5kbXRLZVdWSFYyMXRWbFZVWjJkc01EUnNURkZMVG1aTlZHODFMMkpWYWtOQk1HaE5lRVI1VkhOSmRtVlJSR0ZNTWtsdlRXcHZjRms0VkVSbEsxVTJiVUp2VURWeE5WWXJjQ3REUVZoamJqWXhRbFJhVVZwMGJtTnFMMEpCVmtkTk9FWjROVzlyV0hSWVNWQXhVa1kwYTFWQ2NrWlZUREZ5VFdGMVZrWnFTazV4VTFwTFQyOTNkVXBNVFRnMlNFWjBTbGQwZVVsUkszWlpabTFwWlUweE0yOTJNblZsZURCb1JsaFJkRmt2TWt0MWRVaGhOM2RLVjJwRlQwcHFhRVZ6VGpoWFN5ODJabEZGYmk5RVF6Y3JOa3czTnpobGJtVlZaMmxMWjNWRmJqbE1NWFpNWVZaNVZXdFFhV2M5TzJWNVNuTmhWMDVzWW01T2JGcFRTVFpKYTFKc1dtMUdNV0pJVVdsTVEwcDNZMjA1YTJSWFRqQkphbTlwVkZjNWRtSnBTWE5KYlRGb1pVWk9iR016VG5CaU1qVjZTV3B2TUdaUlBUMD0K
-```
-2) Update secret in `moon.yaml`:
+1) Update secret in `moon.yaml`:
 ```yaml
 apiVersion: v1
 kind: Secret
 metadata:
   name: licensekey
   namespace: moon
-data:
-  license.key: <base64-encoded-key-here> # Update this line
+stringData:
+  license.key: <new-key-contents-here> # Update this line
 ```
-3) Increase pods limit in resource quota to `numSessions + numMoonReplicas` (you only pay for browser pods and can have any number of Moon replicas):
+2) Increase pods limit in resource quota to `numSessions + numMoonReplicas` (you only pay for browser pods and can have any number of Moon replicas):
 ```yaml
 apiVersion: v1
 kind: ResourceQuota
