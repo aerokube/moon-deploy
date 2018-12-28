@@ -86,9 +86,9 @@ spec:
         - name: quota
           mountPath: /quota
           readOnly: true
-#        - name: config
-#          mountPath: /config
-#          readOnly: true
+        - name: config
+          mountPath: /config
+          readOnly: true
 #        - name: credentials
 #          mountPath: /credentials
 #          readOnly: true
@@ -133,9 +133,9 @@ spec:
       - name: quota
         configMap:
           name: quota
-#      - name: config
-#        configMap:
-#          name: config
+      - name: config
+        configMap:
+          name: config
 #      - name: credentials
 #        secret:
 #          secretName: credentials
@@ -145,6 +145,17 @@ spec:
       - name: license-key
         secret:
           secretName: licensekey
+---
+# The following is a temporary fix for release 1.3.0 and will be removed in the next release
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: moon
+data:
+  service.json: |
+    {
+    }    
 #---
 #apiVersion: v1
 #kind: ConfigMap
