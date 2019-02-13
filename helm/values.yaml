@@ -22,7 +22,7 @@ moonAPI:
   resources:
     limits:
       cpu: "0.5"
-      memory: "128Mi"
+      memory: "512Mi"
     requests:
       cpu: "0.25"
       memory: "64Mi"
