@@ -200,8 +200,13 @@ data:
   browsers.json: |
     {
       "firefox": {
-        "default": "64.0",
+        "default": "65.0",
         "versions": {
+          "65.0": {
+            "image": "selenoid/vnc_firefox:65.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "64.0": {
             "image": "selenoid/vnc_firefox:64.0",
             "port": "4444",
@@ -515,8 +520,16 @@ data:
         }
       },
       "chrome": {
-        "default": "71.0",
+        "default": "73.0",
         "versions": {
+          "73.0": {
+            "image": "selenoid/vnc_chrome:73.0",
+            "port": "4444"
+          },
+          "72.0": {
+            "image": "selenoid/vnc_chrome:72.0",
+            "port": "4444"
+          },
           "71.0": {
             "image": "selenoid/vnc_chrome:71.0",
             "port": "4444"
@@ -616,8 +629,12 @@ data:
         }
       },
       "opera": {
-        "default": "57.0",
+        "default": "58.0",
         "versions": {
+          "58.0": {
+            "image": "selenoid/vnc_opera:58.0",
+            "port": "4444"
+          },
           "57.0": {
             "image": "selenoid/vnc_opera:57.0",
             "port": "4444"
