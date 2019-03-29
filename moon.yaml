@@ -200,8 +200,13 @@ data:
   browsers.json: |
     {
       "firefox": {
-        "default": "65.0",
+        "default": "66.0",
         "versions": {
+          "66.0": {
+            "image": "selenoid/vnc_firefox:66.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "65.0": {
             "image": "selenoid/vnc_firefox:65.0",
             "port": "4444",
