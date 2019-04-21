@@ -134,6 +134,7 @@ spec:
         volumeMounts:
         - name: quota
           mountPath: /quota
+          readOnly: true          
         - name: license-key
           mountPath: /license
           readOnly: true
@@ -634,8 +635,12 @@ data:
         }
       },
       "opera": {
-        "default": "58.0",
+        "default": "60.0",
         "versions": {
+          "60.0": {
+            "image": "selenoid/vnc_opera:60.0",
+            "port": "4444"
+          },    
           "58.0": {
             "image": "selenoid/vnc_opera:58.0",
             "port": "4444"
@@ -740,7 +745,7 @@ data:
             "image": "selenoid/vnc_opera:33.0",
             "port": "4444"
           },
-          "12.1": {
+          "12.16": {
             "image": "selenoid/vnc:opera_12.16",
             "port": "4444",
             "path": "/wd/hub"
