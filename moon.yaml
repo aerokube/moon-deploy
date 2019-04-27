@@ -759,7 +759,7 @@ kind: Secret
 metadata:
   name: users
   namespace: moon
-data:
+stringData:
   users.htpasswd: ""
 ---
 apiVersion: v1
