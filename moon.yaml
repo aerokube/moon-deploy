@@ -526,8 +526,12 @@ data:
         }
       },
       "chrome": {
-        "default": "73.0",
+        "default": "74.0",
         "versions": {
+          "74.0": {
+            "image": "selenoid/vnc_chrome:74.0",
+            "port": "4444"
+          },
           "73.0": {
             "image": "selenoid/vnc_chrome:73.0",
             "port": "4444"
