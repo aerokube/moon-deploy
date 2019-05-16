@@ -139,7 +139,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.6.3
+        image: aerokube/selenoid-ui:1.6.7
         args: ["-selenoid-uri", "http://localhost:8888"]
         resources:
           limits:
