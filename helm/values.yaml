@@ -48,8 +48,12 @@ ingress:
 
 browsers:
   firefox:
-    default: '66.0'
+    default: '67.0'
     versions:
+      '67.0':
+        image: selenoid/vnc_firefox:67.0
+        port: '4444'
+        path: "/wd/hub"
       '66.0':
         image: selenoid/vnc_firefox:66.0
         port: '4444'
