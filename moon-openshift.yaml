@@ -803,13 +803,13 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.3.4
+  value: aerokube/moon:1.3.5
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.3.4
+  value: aerokube/moon-api:1.3.5
   required: true
 
 - name: MOON_UI_IMAGE
