@@ -68,16 +68,6 @@ spec:
 #              serviceName: moon-ui
 #              servicePort: 8080
 ---
-apiVersion: v1
-kind: ResourceQuota
-metadata:
-  name: max-moon-sessions
-  namespace: moon
-spec:
-  hard:
-    pods: "6"
-  scopes: ["NotTerminating"]
----
 apiVersion: apps/v1beta1
 kind: Deployment
 metadata:
