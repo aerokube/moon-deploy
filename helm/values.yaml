@@ -311,8 +311,11 @@ browsers:
         port: '4444'
         path: "/wd/hub"
   chrome:
-    default: '74.0'
+    default: '75.0'
     versions:
+      '75.0':
+        image: selenoid/vnc_chrome:75.0
+        port: '4444'
       '74.0':
         image: selenoid/vnc_chrome:74.0
         port: '4444'
