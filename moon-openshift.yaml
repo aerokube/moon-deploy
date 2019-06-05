@@ -22,8 +22,8 @@ objects:
     spec:
       hard:
         pods: ${MOON_PODS}
-    scopes: ["NotTerminating"]      
-  
+    scopes: ["NotTerminating"]
+
   - kind: Service
     apiVersion: v1
     metadata:
@@ -91,7 +91,7 @@ objects:
     apiVersion: v1
     metadata:
       name: moon
-      namespace: ${NAMESPACE}      
+      namespace: ${NAMESPACE}
     spec:
       replicas: 2
       template:
@@ -121,7 +121,7 @@ objects:
 #              readOnly: true
 #            - name: credentials
 #              mountPath: /credentials
-#              readOnly: true              
+#              readOnly: true
             - name: users
               mountPath: /users
               readOnly: true
@@ -149,7 +149,7 @@ objects:
 #              readOnly: true
 #            - name: credentials
 #              mountPath: /credentials
-#              readOnly: true                            
+#              readOnly: true
             - name: license-key
               mountPath: /license
               readOnly: true
@@ -175,7 +175,7 @@ objects:
 #              name: config
 #          - name: credentials
 #            secret:
-#              secretName: credentials              
+#              secretName: credentials
           - name: users
             secret:
               secretName: users
@@ -196,7 +196,7 @@ objects:
 #            "bucketName": "moon-test",
 #            "version": "S3v2"
 #          }
-#        }    
+#        }
 #
 #  - kind: Secret
 #    apiVersion: v1
@@ -206,7 +206,7 @@ objects:
 #    stringData:
 #      s3.accessKey: "access-key-value"
 #      s3.secretKey: "secret-key-value"
-  
+
   - kind: ConfigMap
     apiVersion: v1
     metadata:
@@ -546,10 +546,14 @@ objects:
             }
           },
           "chrome": {
-            "default": "74.0",
+            "default": "75.0",
             "versions": {
               "74.0": {
                 "image": "selenoid/vnc_chrome:74.0",
+                "port": "4444"
+              },
+              "75.0": {
+                "image": "selenoid/vnc_chrome:75.0",
                 "port": "4444"
               },
               "73.0": {
