@@ -105,11 +105,8 @@ objects:
             args: ["-namespace", "${NAMESPACE}", "-license-file", "/license/license.key"]
             resources:
               limits:
-                cpu: "0.5"
+                cpu: "1"
                 memory: "512Mi"
-              requests:
-                cpu: "0.25"
-                memory: "64Mi"
             ports:
             - containerPort: 4444
             volumeMounts:
@@ -135,9 +132,6 @@ objects:
               limits:
                 cpu: "0.5"
                 memory: "512Mi"
-              requests:
-                cpu: "0.25"
-                memory: "64Mi"
             ports:
             - containerPort: 8888
             volumeMounts:
@@ -160,9 +154,6 @@ objects:
               limits:
                 cpu: "0.5"
                 memory: "512Mi"
-              requests:
-                cpu: "0.25"
-                memory: "64Mi"
             ports:
             - name: selenoid-ui
               containerPort: 8080
@@ -548,12 +539,12 @@ objects:
           "chrome": {
             "default": "75.0",
             "versions": {
-              "74.0": {
-                "image": "selenoid/vnc_chrome:74.0",
-                "port": "4444"
-              },
               "75.0": {
                 "image": "selenoid/vnc_chrome:75.0",
+                "port": "4444"
+              },
+              "74.0": {
+                "image": "selenoid/vnc_chrome:74.0",
                 "port": "4444"
               },
               "73.0": {
@@ -807,13 +798,13 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.3.5
+  value: aerokube/moon:1.3.6
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.3.5
+  value: aerokube/moon-api:1.3.6
   required: true
 
 - name: MOON_UI_IMAGE
