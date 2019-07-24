@@ -59,7 +59,7 @@ objects:
 #                  servicePort: 4444
 #              - path: /
 #                backend:
-#                  serviceName: moon-ui
+#                  serviceName: moon
 #                  servicePort: 8080
 
 #  - apiVersion: route.openshift.io/v1
