@@ -149,7 +149,7 @@ objects:
               readOnly: true
           - name: moon-ui
             image: ${MOON_UI_IMAGE}
-            args: ["-selenoid-uri", "http://localhost:8888"]
+            args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
             resources:
               limits:
                 cpu: "0.5"
@@ -810,7 +810,7 @@ parameters:
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.6.7
+  value: aerokube/selenoid-ui:1.8.0
   required: true
 
 - name: MOON_PODS
