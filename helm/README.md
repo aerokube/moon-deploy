@@ -1,17 +1,48 @@
-## Chart variables
-| Name                |      Comment      |
-|---------------------|-------------------|
-| ingress.host        | Moon web interface endpoint. Default: moon.example.com. |
-| service.externalIPs | Kubernetes node IPs assigned to LoadBalancer. Empty if deployed on AWS or GCE. |
-| licenseKey          | Plain license text. Request yours at https://moon.aerokube.com/. |
-| parallelSessions    | Amount of parallel sessions allowed by license + number of Moon replicas. |
+## Moon Helm Chart
 
-## Sample deploy command
+## Deployment on Minikube
+
+It is ease to deploy free (limited up to 4 parallel session) version of Moon to minikube for local development and testing. Follow these simple steps to get enterprise solution for Selenium testing on your laptop.
+
+1) Install [Minikube](https://kubernetes.io/docs/tasks/tools/install-minikube/)
+2) Start local cluster
 ```
-$ cd helm
-$ helm upgrade moon . --install \
-  --namespace moon \
-  --set ingress.host=moon.mobbtech.com \
-  --set licenseKey='<...>' \
-  --set parallelSessions=1002
+$ minikube start --cpus=4 --memory=8Gi
 ```
+3) Enable ingress addon
+```
+$ minikube addons enable ingress
+```
+4) Install [Helm](https://helm.sh/docs/using_helm/)
+5) Initialize helm on cluster
+```
+$ helm init
+```
+5) Clone repository and change directory to helm chart
+```
+$ git clone git@github.com:aerokube/moon-deploy.git
+$ cd moon-deploy/helm
+```
+6) Add Minikube ip address to /etc/hosts with domain name that will be used as ingress.host
+```
+$ sudo bash -c "echo $(minikube ip) moon.example.com >> /etc/hosts"
+```
+7) And finally deploy Moon helm chart
+```
+$ helm upgrade moon . --install --namespace=moon --set replicaCount=2 --set service.externalIPs={$(minikube ip)} --set ingress.host=moon.example.com
+```
+
+Now you are able to run tests using this url:
+```
+http://moon.example.com:4444/wd/hub
+```
+And also you have access to web interface by this url:
+```
+http://moon.example.com
+```
+
+Any time you want to upgrade Moon, just modify any values in values.yaml and invoke the same command:
+```
+$ helm upgrade moon . --install --namespace=moon --set replicaCount=2 --set service.externalIPs={$(minikube ip)} --set ingress.host=moon.example.com
+```
+
