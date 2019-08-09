@@ -48,7 +48,7 @@ spec:
           readOnly: true
       - name: moon-ui
         image: {{ .Values.moonUI.image }}
-        args: ["-selenoid-uri", "http://localhost:{{ .Values.moonAPI.port }}", "-webdriver-uri", "http://localhost:{{ .Values.moon.port }}"]
+        args: ["-status-uri", "http://localhost:{{ .Values.moonAPI.port }}", "-webdriver-uri", "http://localhost:{{ .Values.moon.port }}"]
 {{- if .Values.moonUI.resources.enabled }}
         resources:
 {{ toYaml .Values.moonUI.resources | indent 10 }}{{ end }}
