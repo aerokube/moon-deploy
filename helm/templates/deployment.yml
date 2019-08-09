@@ -17,8 +17,9 @@ spec:
       - name: moon
         image: {{ .Values.moon.image }}
         args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key"]
+{{- if .Values.moon.resources.enabled }}
         resources:
-{{ toYaml .Values.moon.resources | indent 10 }}
+{{ toYaml .Values.moon.resources | indent 10 }}{{ end }}
         ports:
         - containerPort: {{ .Values.moon.port }}
         volumeMounts:
@@ -34,8 +35,9 @@ spec:
       - name: moon-api
         image: {{ .Values.moonAPI.image }}
         args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key", "-listen", ":{{ .Values.moonAPI.port }}"]
+{{- if .Values.moonAPI.resources.enabled }}
         resources:
-{{ toYaml .Values.moonAPI.resources | indent 10 }}
+{{ toYaml .Values.moonAPI.resources | indent 10 }}{{ end }}
         ports:
         - containerPort: {{ .Values.moonAPI.port }}
         volumeMounts:
@@ -46,9 +48,10 @@ spec:
           readOnly: true
       - name: moon-ui
         image: {{ .Values.moonUI.image }}
-        args: ["-selenoid-uri", "http://localhost:{{ .Values.moonAPI.port }}"]
+        args: ["-selenoid-uri", "http://localhost:{{ .Values.moonAPI.port }}", "-webdriver-uri", "http://localhost:{{ .Values.moon.port }}"]
+{{- if .Values.moonUI.resources.enabled }}
         resources:
-{{ toYaml .Values.moonAPI.resources | indent 10 }}
+{{ toYaml .Values.moonUI.resources | indent 10 }}{{ end }}
         ports:
         - name: moon-ui
           containerPort: {{ .Values.moonUI.port }}

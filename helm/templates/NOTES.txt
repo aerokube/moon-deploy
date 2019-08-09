@@ -1,4 +1,6 @@
+{{ if .Values.ingress.enabled -}}
 Access Moon web interface at http://{{ .Values.ingress.host }}
+{{- end }}
 
 Run a test against http://{{ .Values.ingress.host }}:{{ .Values.moon.port }}/wd/hub
 
