@@ -13,7 +13,7 @@ $ minikube start --cpus=4 --memory=8Gi
 ```
 $ minikube addons enable ingress
 ```
-4) Install [Helm](https://helm.sh/docs/using_helm/)
+4) Install [Helm](https://github.com/helm/helm/releases)
 5) Initialize helm on cluster
 ```
 $ helm init
