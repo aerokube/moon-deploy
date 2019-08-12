@@ -16,7 +16,17 @@ spec:
       containers:
       - name: moon
         image: {{ .Values.moon.image }}
-        args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key"]
+        args:
+        - "-namespace"
+        - "{{ .Release.Namespace }}"
+        - "-license-file"
+        - "/license/license.key"
+{{- if .Values.resources.cpu.disabled }}
+        - "-disable-cpu-limits"
+{{ end -}}
+{{- if .Values.resources.memory.disabled }}
+        - "-disable-memory-limits"
+{{ end -}}
 {{- if .Values.moon.resources.enabled }}
         resources:
 {{ toYaml .Values.moon.resources | indent 10 }}{{ end }}
