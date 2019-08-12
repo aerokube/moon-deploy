@@ -33,6 +33,12 @@ moonUI:
       memory: "512Mi"
   port: 8080
 
+resources:
+  cpu:
+    disabled: true
+  memory:
+    disabled: true
+
 service:
   externalIPs: {}
 
