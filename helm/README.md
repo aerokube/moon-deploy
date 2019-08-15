@@ -20,7 +20,7 @@ $ helm init
 ```
 5) Clone repository and change directory to helm chart
 ```
-$ git clone git@github.com:aerokube/moon-deploy.git
+$ git clone https://github.com/aerokube/moon-deploy.git
 $ cd moon-deploy/helm
 ```
 6) Add Minikube ip address to /etc/hosts with domain name that will be used as ingress.host
