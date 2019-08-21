@@ -23,9 +23,19 @@ spec:
         - "/license/license.key"
 {{- if .Values.resources.cpu.disabled }}
         - "-disable-cpu-limits"
+{{- else -}}
+        - "-cpu-limit"
+        - {{ .Values.resources.cpu.limits | quote }}
+        - "-cpu-request"
+        - {{ .Values.resources.cpu.requests | quote }}
 {{ end -}}
 {{- if .Values.resources.memory.disabled }}
         - "-disable-memory-limits"
+{{- else -}}
+        - "-memory-limit"
+        - {{ .Values.resources.memory.limits }}
+        - "-memory-request"
+        - {{ .Values.resources.memory.requests }}
 {{ end -}}
 {{- if .Values.moon.resources.enabled }}
         resources:
