@@ -398,6 +398,30 @@ browsers:
       '48.0':
         image: selenoid/vnc_chrome:48.0
         port: '4444'
+      'mobile-75.0':
+        image: selenoid/chrome-mobile:75.0
+        port: '4444'
+        privileged: true
+        resources:
+          limits:
+            cpu: '2'
+            memory: '4Gi'
+      'mobile-74.0':
+        image: selenoid/chrome-mobile:74.0
+        port: '4444'
+        privileged: true
+        resources:
+          limits:
+            cpu: '2'
+            memory: '4Gi'
+      'mobile-73.0':
+        image: selenoid/chrome-mobile:73.0
+        port: '4444'
+        privileged: true
+        resources:
+          limits:
+            cpu: '2'
+            memory: '4Gi'
   opera:
     default: '60.0'
     versions:
