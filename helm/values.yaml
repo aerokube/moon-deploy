@@ -36,8 +36,12 @@ moonUI:
 resources:
   cpu:
     disabled: true
+    limits: '2'
+    requests: '2'
   memory:
     disabled: true
+    limits: '2Gi'
+    requests: '2Gi'
 
 service:
   externalIPs: {}
