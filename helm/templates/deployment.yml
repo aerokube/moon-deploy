@@ -23,7 +23,7 @@ spec:
         - "/license/license.key"
 {{- if .Values.resources.cpu.disabled }}
         - "-disable-cpu-limits"
-{{- else -}}
+{{- else }}
         - "-cpu-limit"
         - {{ .Values.resources.cpu.limits | quote }}
         - "-cpu-request"
