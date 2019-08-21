@@ -31,7 +31,7 @@ spec:
 {{ end -}}
 {{- if .Values.resources.memory.disabled }}
         - "-disable-memory-limits"
-{{- else -}}
+{{- else }}
         - "-memory-limit"
         - {{ .Values.resources.memory.limits }}
         - "-memory-request"
