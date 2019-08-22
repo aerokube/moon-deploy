@@ -7,7 +7,7 @@ createRole: true
 createRoleBinding: true
 
 moon:
-  image: aerokube/moon:1.3.7
+  image: aerokube/moon:1.3.8
   resources:
     enabled: false
     limits:
@@ -16,7 +16,7 @@ moon:
   port: 4444
 
 moonAPI:
-  image: aerokube/moon-api:1.3.7
+  image: aerokube/moon-api:1.3.8
   resources:
     enabled: false
     limits:
@@ -53,8 +53,12 @@ ingress:
 
 browsers:
   firefox:
-    default: '67.0'
+    default: '68.0'
     versions:
+      '68.0':
+        image: selenoid/vnc_firefox:68.0
+        port: '4444'
+        path: "/wd/hub"
       '67.0':
         image: selenoid/vnc_firefox:67.0
         port: '4444'
@@ -316,8 +320,11 @@ browsers:
         port: '4444'
         path: "/wd/hub"
   chrome:
-    default: '75.0'
+    default: '76.0'
     versions:
+      '76.0':
+        image: selenoid/vnc_chrome:76.0
+        port: '4444'
       '75.0':
         image: selenoid/vnc_chrome:75.0
         port: '4444'
@@ -429,6 +436,9 @@ browsers:
   opera:
     default: '60.0'
     versions:
+      '62.0':
+        image: selenoid/vnc_opera:62.0
+        port: '4444'
       '60.0':
         image: selenoid/vnc_opera:60.0
         port: '4444'
