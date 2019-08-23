@@ -412,6 +412,7 @@ browsers:
       'mobile-75.0':
         image: selenoid/chrome-mobile:75.0
         port: '4444'
+        path: "/wd/hub"
         privileged: true
         resources:
           limits:
@@ -420,6 +421,7 @@ browsers:
       'mobile-74.0':
         image: selenoid/chrome-mobile:74.0
         port: '4444'
+        path: "/wd/hub"
         privileged: true
         resources:
           limits:
@@ -428,6 +430,7 @@ browsers:
       'mobile-73.0':
         image: selenoid/chrome-mobile:73.0
         port: '4444'
+        path: "/wd/hub"
         privileged: true
         resources:
           limits:
