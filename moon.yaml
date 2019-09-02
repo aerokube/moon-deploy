@@ -519,7 +519,7 @@ data:
       "chrome": {
         "default": "76.0",
         "versions": {
-          "75.0": {
+          "76.0": {
             "image": "selenoid/vnc_chrome:76.0",
             "port": "4444"
           },
