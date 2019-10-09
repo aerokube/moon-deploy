@@ -51,6 +51,8 @@ ingress:
   path: /
   host: moon.example.com
 
+affinity: {}
+
 browsers:
   firefox:
     default: '69.0'
