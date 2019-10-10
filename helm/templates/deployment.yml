@@ -13,6 +13,10 @@ spec:
       labels:
         app: moon
     spec:
+{{- if .Values.affinity }}
+      affinity:
+{{ toYaml .Values.affinity | indent 8 }}
+{{- end }}
       containers:
       - name: moon
         image: {{ .Values.moon.image }}
