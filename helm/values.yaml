@@ -26,7 +26,7 @@ moonAPI:
   port: 8888
 
 moonUI:
-  image: aerokube/selenoid-ui:1.8.1
+  image: aerokube/selenoid-ui:1.9.0
   resources:
     enabled: false
     limits:
