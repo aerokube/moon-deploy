@@ -1,4 +1,4 @@
-apiVersion: v1
+apiVersion: core/v1
 kind: ConfigMap
 metadata:
   name: quota
