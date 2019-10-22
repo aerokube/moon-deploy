@@ -16,7 +16,7 @@ objects:
         name: default
 
   - kind: ResourceQuota
-    apiVersion: core/v1
+    apiVersion: v1
     metadata:
       name: max-moon-sessions
     spec:
@@ -25,7 +25,7 @@ objects:
     scopes: ["NotTerminating"]
 
   - kind: Service
-    apiVersion: core/v1
+    apiVersion: v1
     metadata:
       name: moon
       namespace: ${NAMESPACE}
@@ -175,7 +175,7 @@ objects:
               secretName: licensekey
 
 #  - kind: ConfigMap
-#    apiVersion: core/v1
+#    apiVersion: v1
 #    metadata:
 #      name: config
 #      namespace: moon
@@ -190,7 +190,7 @@ objects:
 #        }
 #
 #  - kind: Secret
-#    apiVersion: core/v1
+#    apiVersion: v1
 #    metadata:
 #      name: credentials
 #      namespace: moon
@@ -199,7 +199,7 @@ objects:
 #      s3.secretKey: "secret-key-value"
 
   - kind: ConfigMap
-    apiVersion: core/v1
+    apiVersion: v1
     metadata:
       name: quota
       namespace: ${NAMESPACE}
@@ -796,14 +796,14 @@ objects:
         }
 
   - kind: Secret
-    apiVersion: core/v1
+    apiVersion: v1
     metadata:
       name: users
       namespace: ${NAMESPACE}
     stringData:
       users.htpasswd: ""
   - kind: Secret
-    apiVersion: core/v1
+    apiVersion: v1
     metadata:
       name: licensekey
       namespace: ${NAMESPACE}
