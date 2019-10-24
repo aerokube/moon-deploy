@@ -332,8 +332,11 @@ quota:
           port: '4444'
           path: "/wd/hub"
     chrome:
-      default: '77.0'
+      default: '78.0'
       versions:
+        '78.0':
+          image: selenoid/vnc_chrome:78.0
+          port: '4444'
         '77.0':
           image: selenoid/vnc_chrome:77.0
           port: '4444'
