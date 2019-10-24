@@ -57,8 +57,12 @@ affinity: {}
 quota:
   browsers:
     firefox:
-      default: '69.0'
+      default: '70.0'
       versions:
+        '70.0':
+          image: selenoid/vnc_firefox:70.0
+          port: '4444'
+          path: "/wd/hub"
         '69.0':
           image: selenoid/vnc_firefox:69.0
           port: '4444'
