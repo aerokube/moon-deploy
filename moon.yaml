@@ -85,7 +85,7 @@ spec:
     spec:
       containers:
       - name: moon
-        image: aerokube/moon:1.3.8
+        image: aerokube/moon:1.3.9
         args: ["-namespace", "moon", "-license-file", "/license/license.key"]
         resources:
           limits:
@@ -110,7 +110,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.3.8
+        image: aerokube/moon-api:1.3.9
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         resources:
           limits:
@@ -126,7 +126,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.9.0
+        image: aerokube/selenoid-ui:1.9.1
         args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
         resources:
           limits:
