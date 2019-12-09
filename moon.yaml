@@ -56,6 +56,7 @@ spec:
 #  selector:
 #    moon: browser
 #  clusterIP: None
+#  publishNotReadyAddresses: true
 #---
 #apiVersion: extensions/v1beta1
 #kind: Ingress
