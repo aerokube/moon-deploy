@@ -33,3 +33,15 @@ spec:
     protocol: TCP
     port: {{ .Values.moonUI.port }}
   type: ClusterIP
+
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: browsers
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    moon: browser
+  clusterIP: None
+  publishNotReadyAddresses: true

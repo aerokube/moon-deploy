@@ -46,18 +46,18 @@ spec:
     protocol: TCP
     port: 8080
   type: LoadBalancer # You may want to replace LoadBalancer with Ingress: just comment this line and uncomment Ingress definition below
-#---
-#apiVersion: v1
-#kind: Service
-#metadata:
-#  name: browsers
-#  namespace: moon
-#spec:
-#  selector:
-#    moon: browser
-#  clusterIP: None
-#  publishNotReadyAddresses: true
-#---
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: browsers
+  namespace: moon
+spec:
+  selector:
+    moon: browser
+  clusterIP: None
+  publishNotReadyAddresses: true
+---
 #apiVersion: extensions/v1beta1
 #kind: Ingress
 #metadata:
