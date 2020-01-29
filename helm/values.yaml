@@ -561,3 +561,96 @@ quota:
           image: selenoid/vnc:opera_12.16
           port: '4444'
           path: "/wd/hub"
+    android:
+      default: '10.0'
+      versions:
+        '10.0':
+          image: selenoid/android:10.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '9.0':
+          image: selenoid/android:9.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '8.1':
+          image: selenoid/android:8.1
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '8.0':
+          image: selenoid/android:8.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '7.1':
+          image: selenoid/android:7.1
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '7.0':
+          image: selenoid/android:7.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '6.0':
+          image: selenoid/android:6.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '5.1':
+          image: selenoid/android:5.1
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '5.0':
+          image: selenoid/android:5.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        '4.4':
+          image: selenoid/android:4.4
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
