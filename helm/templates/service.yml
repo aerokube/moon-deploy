@@ -45,3 +45,13 @@ spec:
     moon: browser
   clusterIP: None
   publishNotReadyAddresses: true
+#  ports: # Uncomment the following lines if you have Kubernetes < 1.13
+#    - name: wd
+#      port: 4444
+#      protocol: TCP
+#      targetPort: 4444
+#    - name: vnc
+#      port: 5900
+#      protocol: TCP
+#      targetPort: 5900
+
