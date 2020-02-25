@@ -109,7 +109,7 @@ spec:
         args: ["-namespace", "moon", "-license-file", "/license/license.key"]
         resources:
           limits:
-            cpu: "1"
+            cpu: "0.5"
             memory: "512Mi"
         ports:
         - containerPort: 4444

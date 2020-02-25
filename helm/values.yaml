@@ -12,7 +12,7 @@ moon:
   resources:
     enabled: false
     limits:
-      cpu: "1"
+      cpu: "0.5"
       memory: "512Mi"
   port: 4444
 
