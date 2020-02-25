@@ -8,7 +8,7 @@ createRole: true
 createRoleBinding: true
 
 moon:
-  image: aerokube/moon:1.3.8
+  image: aerokube/moon:1.4.0
   resources:
     enabled: false
     limits:
@@ -17,7 +17,7 @@ moon:
   port: 4444
 
 moonAPI:
-  image: aerokube/moon-api:1.3.8
+  image: aerokube/moon-api:1.4.0
   resources:
     enabled: false
     limits:
@@ -26,7 +26,7 @@ moonAPI:
   port: 8888
 
 moonUI:
-  image: aerokube/selenoid-ui:1.9.0
+  image: aerokube/selenoid-ui:1.9.2
   resources:
     enabled: false
     limits:
