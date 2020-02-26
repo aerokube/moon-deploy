@@ -125,7 +125,7 @@ objects:
             args: ["-namespace", "${NAMESPACE}", "-license-file", "/license/license.key"]
             resources:
               limits:
-                cpu: "1"
+                cpu: "0.5"
                 memory: "512Mi"
             ports:
             - containerPort: 4444
@@ -227,8 +227,18 @@ objects:
       browsers.json: |
         {
           "firefox": {
-            "default": "71.0",
+            "default": "73.0",
             "versions": {
+              "73.0": {
+                "image": "selenoid/vnc_firefox:73.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "72.0": {
+                "image": "selenoid/vnc_firefox:72.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "71.0": {
                 "image": "selenoid/vnc_firefox:71.0",
                 "port": "4444",
@@ -577,8 +587,12 @@ objects:
             }
           },
           "chrome": {
-            "default": "79.0",
+            "default": "80.0",
             "versions": {
+              "80.0": {
+                "image": "selenoid/vnc_chrome:80.0",
+                "port": "4444"
+              },
               "79.0": {
                 "image": "selenoid/vnc_chrome:79.0",
                 "port": "4444"
@@ -710,8 +724,12 @@ objects:
             }
           },
           "opera": {
-            "default": "65.0",
+            "default": "66.0",
             "versions": {
+              "66.0": {
+                "image": "selenoid/vnc_opera:66.0",
+                "port": "4444"
+              },
               "65.0": {
                 "image": "selenoid/vnc_opera:65.0",
                 "port": "4444"
@@ -870,19 +888,19 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.3.8
+  value: aerokube/moon:1.4.0
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.3.8
+  value: aerokube/moon-api:1.4.0
   required: true
 
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.9.0
+  value: aerokube/selenoid-ui:1.9.2
   required: true
 
 - name: MOON_PODS
