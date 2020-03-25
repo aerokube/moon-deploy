@@ -8,7 +8,7 @@ createRole: true
 createRoleBinding: true
 
 moon:
-  image: aerokube/moon:1.4.0
+  image: aerokube/moon:1.4.1
   resources:
     enabled: false
     limits:
@@ -17,7 +17,7 @@ moon:
   port: 4444
 
 moonAPI:
-  image: aerokube/moon-api:1.4.0
+  image: aerokube/moon-api:1.4.1
   resources:
     enabled: false
     limits:
@@ -26,7 +26,7 @@ moonAPI:
   port: 8888
 
 moonUI:
-  image: aerokube/selenoid-ui:1.9.2
+  image: aerokube/selenoid-ui:1.10.0
   resources:
     enabled: false
     limits:
@@ -57,8 +57,12 @@ affinity: {}
 quota:
   browsers:
     firefox:
-      default: '73.0'
+      default: '74.0'
       versions:
+        '74.0':
+          image: selenoid/vnc_firefox:74.0
+          port: '4444'
+          path: "/wd/hub"
         '73.0':
           image: selenoid/vnc_firefox:73.0
           port: '4444'
@@ -445,6 +449,42 @@ quota:
         '48.0':
           image: selenoid/vnc_chrome:48.0
           port: '4444'
+        'mobile-79.0':
+          image: selenoid/chrome-mobile:79.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        'mobile-78.0':
+          image: selenoid/chrome-mobile:78.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        'mobile-77.0':
+          image: selenoid/chrome-mobile:77.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
+        'mobile-76.0':
+          image: selenoid/chrome-mobile:76.0
+          port: '4444'
+          path: "/wd/hub"
+          privileged: true
+          resources:
+            limits:
+              cpu: '2'
+              memory: '4Gi'
         'mobile-75.0':
           image: selenoid/chrome-mobile:75.0
           port: '4444'
@@ -473,8 +513,11 @@ quota:
               cpu: '2'
               memory: '4Gi'
     opera:
-      default: '66.0'
+      default: '67.0'
       versions:
+        '67.0':
+          image: selenoid/vnc_opera:67.0
+          port: '4444'
         '66.0':
           image: selenoid/vnc_opera:66.0
           port: '4444'

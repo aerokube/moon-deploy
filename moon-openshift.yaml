@@ -227,8 +227,13 @@ objects:
       browsers.json: |
         {
           "firefox": {
-            "default": "73.0",
+            "default": "74.0",
             "versions": {
+              "74.0": {
+                "image": "selenoid/vnc_firefox:74.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "73.0": {
                 "image": "selenoid/vnc_firefox:73.0",
                 "port": "4444",
@@ -724,8 +729,12 @@ objects:
             }
           },
           "opera": {
-            "default": "66.0",
+            "default": "67.0",
             "versions": {
+              "67.0": {
+                "image": "selenoid/vnc_opera:67.0",
+                "port": "4444"
+              },
               "66.0": {
                 "image": "selenoid/vnc_opera:66.0",
                 "port": "4444"
@@ -888,19 +897,19 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.4.0
+  value: aerokube/moon:1.4.1
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.4.0
+  value: aerokube/moon-api:1.4.1
   required: true
 
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.9.2
+  value: aerokube/selenoid-ui:1.10.0
   required: true
 
 - name: MOON_PODS
