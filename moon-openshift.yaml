@@ -227,8 +227,13 @@ objects:
       browsers.json: |
         {
           "firefox": {
-            "default": "73.0",
+            "default": "74.0",
             "versions": {
+              "74.0": {
+                "image": "selenoid/vnc_firefox:74.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "73.0": {
                 "image": "selenoid/vnc_firefox:73.0",
                 "port": "4444",
@@ -724,8 +729,12 @@ objects:
             }
           },
           "opera": {
-            "default": "66.0",
+            "default": "67.0",
             "versions": {
+              "67.0": {
+                "image": "selenoid/vnc_opera:67.0",
+                "port": "4444"
+              },
               "66.0": {
                 "image": "selenoid/vnc_opera:66.0",
                 "port": "4444"
