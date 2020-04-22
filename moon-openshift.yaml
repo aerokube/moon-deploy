@@ -617,123 +617,153 @@ objects:
               },
               "77.0": {
                 "image": "selenoid/vnc_chrome:77.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "76.0": {
                 "image": "selenoid/vnc_chrome:76.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "75.0": {
                 "image": "selenoid/vnc_chrome:75.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "74.0": {
                 "image": "selenoid/vnc_chrome:74.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "73.0": {
                 "image": "selenoid/vnc_chrome:73.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "72.0": {
                 "image": "selenoid/vnc_chrome:72.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "71.0": {
                 "image": "selenoid/vnc_chrome:71.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "70.0": {
                 "image": "selenoid/vnc_chrome:70.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "69.0": {
                 "image": "selenoid/vnc_chrome:69.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "68.0": {
                 "image": "selenoid/vnc_chrome:68.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "67.0": {
                 "image": "selenoid/vnc_chrome:67.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "66.0": {
                 "image": "selenoid/vnc_chrome:66.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "65.0": {
                 "image": "selenoid/vnc_chrome:65.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "64.0": {
                 "image": "selenoid/vnc_chrome:64.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "63.0": {
                 "image": "selenoid/vnc_chrome:63.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "62.0": {
                 "image": "selenoid/vnc_chrome:62.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "61.0": {
                 "image": "selenoid/vnc_chrome:61.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "60.0": {
                 "image": "selenoid/vnc_chrome:60.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "59.0": {
                 "image": "selenoid/vnc_chrome:59.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "58.0": {
                 "image": "selenoid/vnc_chrome:58.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "57.0": {
                 "image": "selenoid/vnc_chrome:57.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "56.0": {
                 "image": "selenoid/vnc_chrome:56.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "55.0": {
                 "image": "selenoid/vnc_chrome:55.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "54.0": {
                 "image": "selenoid/vnc_chrome:54.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "53.0": {
                 "image": "selenoid/vnc_chrome:53.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "52.0": {
                 "image": "selenoid/vnc_chrome:52.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "51.0": {
                 "image": "selenoid/vnc_chrome:51.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "50.0": {
                 "image": "selenoid/vnc_chrome:50.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "49.0": {
                 "image": "selenoid/vnc_chrome:49.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "48.0": {
                 "image": "selenoid/vnc_chrome:48.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               }
             }
           },
@@ -742,139 +772,173 @@ objects:
             "versions": {
               "67.0": {
                 "image": "selenoid/vnc_opera:67.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "66.0": {
                 "image": "selenoid/vnc_opera:66.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "65.0": {
                 "image": "selenoid/vnc_opera:65.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "64.0": {
                 "image": "selenoid/vnc_opera:64.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "63.0": {
                 "image": "selenoid/vnc_opera:63.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "62.0": {
                 "image": "selenoid/vnc_opera:62.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "60.0": {
                 "image": "selenoid/vnc_opera:60.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "58.0": {
                 "image": "selenoid/vnc_opera:58.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "57.0": {
                 "image": "selenoid/vnc_opera:57.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "56.0": {
                 "image": "selenoid/vnc_opera:56.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "55.0": {
                 "image": "selenoid/vnc_opera:55.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "54.0": {
                 "image": "selenoid/vnc_opera:54.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "53.0": {
                 "image": "selenoid/vnc_opera:53.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "52.0": {
                 "image": "selenoid/vnc_opera:52.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "51.0": {
                 "image": "selenoid/vnc_opera:51.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "50.0": {
                 "image": "selenoid/vnc_opera:50.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "49.0": {
                 "image": "selenoid/vnc_opera:49.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "48.0": {
                 "image": "selenoid/vnc_opera:48.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "47.0": {
                 "image": "selenoid/vnc_opera:47.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "46.0": {
                 "image": "selenoid/vnc_opera:46.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "45.0": {
                 "image": "selenoid/vnc_opera:45.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "44.0": {
                 "image": "selenoid/vnc_opera:44.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "43.0": {
                 "image": "selenoid/vnc_opera:43.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "42.0": {
                 "image": "selenoid/vnc_opera:42.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "41.0": {
                 "image": "selenoid/vnc_opera:41.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "40.0": {
                 "image": "selenoid/vnc_opera:40.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "39.0": {
                 "image": "selenoid/vnc_opera:39.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "38.0": {
                 "image": "selenoid/vnc_opera:38.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "37.0": {
                 "image": "selenoid/vnc_opera:37.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "36.0": {
                 "image": "selenoid/vnc_opera:36.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "35.0": {
                 "image": "selenoid/vnc_opera:35.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "34.0": {
                 "image": "selenoid/vnc_opera:34.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "33.0": {
                 "image": "selenoid/vnc_opera:33.0",
-                "port": "4444"
+                "port": "4444",
+                "privileged": true
               },
               "12.16": {
                 "image": "selenoid/vnc:opera_12.16",
                 "port": "4444",
+                "privileged": true,
                 "path": "/wd/hub"
               }
             }
