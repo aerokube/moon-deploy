@@ -240,102 +240,102 @@ objects:
             "versions": {
               "74.0": {
                 "image": "selenoid/vnc_firefox:74.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "73.0": {
                 "image": "selenoid/vnc_firefox:73.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "72.0": {
                 "image": "selenoid/vnc_firefox:72.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "71.0": {
                 "image": "selenoid/vnc_firefox:71.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "70.0": {
                 "image": "selenoid/vnc_firefox:70.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "69.0": {
                 "image": "selenoid/vnc_firefox:69.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "68.0": {
                 "image": "selenoid/vnc_firefox:68.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "67.0": {
                 "image": "selenoid/vnc_firefox:67.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "66.0": {
                 "image": "selenoid/vnc_firefox:66.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "65.0": {
                 "image": "selenoid/vnc_firefox:65.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "64.0": {
                 "image": "selenoid/vnc_firefox:64.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "63.0": {
                 "image": "selenoid/vnc_firefox:63.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "62.0": {
                 "image": "selenoid/vnc_firefox:62.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "61.0": {
                 "image": "selenoid/vnc_firefox:61.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "60.0": {
                 "image": "selenoid/vnc_firefox:60.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "59.0": {
                 "image": "selenoid/vnc_firefox:59.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "58.0": {
                 "image": "selenoid/vnc_firefox:58.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "57.0": {
                 "image": "selenoid/vnc_firefox:57.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "56.0": {
                 "image": "selenoid/vnc_firefox:56.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "55.0": {
                 "image": "selenoid/vnc_firefox:55.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "54.0": {
@@ -345,257 +345,257 @@ objects:
               },
               "53.0": {
                 "image": "selenoid/vnc_firefox:53.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "52.0": {
                 "image": "selenoid/vnc_firefox:52.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "51.0": {
                 "image": "selenoid/vnc_firefox:51.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "50.0": {
                 "image": "selenoid/vnc_firefox:50.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "49.0": {
                 "image": "selenoid/vnc_firefox:49.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "48.0": {
                 "image": "selenoid/vnc_firefox:48.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "47.0": {
                 "image": "selenoid/vnc_firefox:47.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "46.0": {
                 "image": "selenoid/vnc_firefox:46.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "45.0": {
                 "image": "selenoid/vnc_firefox:45.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "44.0": {
                 "image": "selenoid/vnc_firefox:44.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "43.0": {
                 "image": "selenoid/vnc_firefox:43.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "42.0": {
                 "image": "selenoid/vnc_firefox:42.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "41.0": {
                 "image": "selenoid/vnc_firefox:41.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "40.0": {
                 "image": "selenoid/vnc_firefox:40.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "39.0": {
                 "image": "selenoid/vnc_firefox:39.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "38.0": {
                 "image": "selenoid/vnc_firefox:38.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "37.0": {
                 "image": "selenoid/vnc_firefox:37.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "36.0": {
                 "image": "selenoid/vnc_firefox:36.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "35.0": {
                 "image": "selenoid/vnc_firefox:35.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "34.0": {
                 "image": "selenoid/vnc_firefox:34.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "33.0": {
                 "image": "selenoid/vnc_firefox:33.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "32.0": {
                 "image": "selenoid/vnc_firefox:32.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "31.0": {
                 "image": "selenoid/vnc_firefox:31.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "30.0": {
                 "image": "selenoid/vnc_firefox:30.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "29.0": {
                 "image": "selenoid/vnc_firefox:29.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "28.0": {
                 "image": "selenoid/vnc_firefox:28.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "27.0": {
                 "image": "selenoid/vnc_firefox:27.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "26.0": {
                 "image": "selenoid/vnc_firefox:26.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "25.0": {
                 "image": "selenoid/vnc_firefox:25.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "24.0": {
                 "image": "selenoid/vnc_firefox:24.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "23.0": {
                 "image": "selenoid/vnc_firefox:23.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "22.0": {
                 "image": "selenoid/vnc_firefox:22.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "21.0": {
                 "image": "selenoid/vnc_firefox:21.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "20.0": {
                 "image": "selenoid/vnc_firefox:20.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "19.0": {
                 "image": "selenoid/vnc_firefox:19.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "18.0": {
                 "image": "selenoid/vnc_firefox:18.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "17.0": {
                 "image": "selenoid/vnc_firefox:17.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "16.0": {
                 "image": "selenoid/vnc_firefox:16.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "15.0": {
                 "image": "selenoid/vnc_firefox:15.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "14.0": {
                 "image": "selenoid/vnc_firefox:14.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "13.0": {
                 "image": "selenoid/vnc_firefox:13.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "12.0": {
                 "image": "selenoid/vnc_firefox:12.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "11.0": {
                 "image": "selenoid/vnc_firefox:11.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "10.0": {
                 "image": "selenoid/vnc_firefox:10.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "9.0": {
                 "image": "selenoid/vnc_firefox:9.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "8.0": {
                 "image": "selenoid/vnc_firefox:8.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "7.0": {
                 "image": "selenoid/vnc_firefox:7.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "6.0": {
                 "image": "selenoid/vnc_firefox:6.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "5.0": {
                 "image": "selenoid/vnc_firefox:5.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "4.0": {
                 "image": "selenoid/vnc_firefox:4.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "3.6": {
                 "image": "selenoid/vnc_firefox:3.6",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               }
             }
