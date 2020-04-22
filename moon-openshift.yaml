@@ -9,7 +9,7 @@ objects:
       name: edit
     roleRef:
       apiGroup: rbac.authorization.k8s.io
-      kind: ClusterRole
+      kind: Role
       name: edit
     subjects:
       - kind: ServiceAccount
@@ -49,6 +49,15 @@ objects:
      spec:
        selector:
          moon: browser
+       ports:
+        - name: wd
+          port: 4444
+          protocol: TCP
+          targetPort: 4444
+        - name: vnc
+          port: 5900
+          protocol: TCP
+          targetPort: 5900
        clusterIP: None
        publishNotReadyAddresses: true
 #       ports: # Uncomment the following lines if you have Openshift based on Kubernetes <1.13
