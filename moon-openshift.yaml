@@ -340,7 +340,7 @@ objects:
               },
               "54.0": {
                 "image": "selenoid/vnc_firefox:54.0",
-                "port": "4444"
+                "port": "4444",
                 "path": "/wd/hub"
               },
               "53.0": {
