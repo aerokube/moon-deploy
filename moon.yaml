@@ -117,9 +117,9 @@ spec:
         - name: quota
           mountPath: /quota
           readOnly: true
-#        - name: config
-#          mountPath: /config
-#          readOnly: true
+        - name: config
+          mountPath: /config
+          readOnly: true
 #        - name: credentials
 #          mountPath: /credentials
 #          readOnly: true
@@ -159,9 +159,9 @@ spec:
       - name: quota
         configMap:
           name: quota
-#      - name: config
-#        configMap:
-#          name: config
+      - name: config
+        configMap:
+          name: config
 #      - name: credentials
 #        secret:
 #          secretName: credentials
@@ -171,21 +171,22 @@ spec:
       - name: license-key
         secret:
           secretName: licensekey
-#---
-#apiVersion: v1
-#kind: ConfigMap
-#metadata:
-#  name: config
-#  namespace: moon
-#data:
-#  service.json: |
-#    {
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: moon
+data:
+  service.json: |
+    {
+      "kernelCaps": [ "SYS_ADMIN" ]
 #      "s3": {
 #        "endpoint": "https://storage.googleapis.com",
 #        "bucketName": "moon-test",
 #        "version": "S3v2"
 #      }
-#    }
+    }
 #---
 #apiVersion: v1
 #kind: Secret
