@@ -50,6 +50,9 @@ spec:
         - name: quota
           mountPath: /quota
           readOnly: true
+        - name: config
+          mountPath: /config
+          readOnly: true
         - name: users
           mountPath: /users
           readOnly: true
@@ -83,6 +86,9 @@ spec:
       - name: quota
         configMap:
           name: quota
+      - name: config
+        configMap:
+          name: config
       - name: users
         secret:
           secretName: users
