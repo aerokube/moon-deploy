@@ -142,9 +142,9 @@ objects:
             - name: quota
               mountPath: /quota
               readOnly: true
-#            - name: config
-#              mountPath: /config
-#              readOnly: true
+            - name: config
+              mountPath: /config
+              readOnly: true
 #            - name: credentials
 #              mountPath: /credentials
 #              readOnly: true
@@ -190,9 +190,9 @@ objects:
           - name: quota
             configMap:
               name: quota
-#          - name: config
-#            configMap:
-#              name: config
+          - name: config
+            configMap:
+              name: config
 #          - name: credentials
 #            secret:
 #              secretName: credentials
@@ -203,20 +203,21 @@ objects:
             secret:
               secretName: licensekey
 
-#  - kind: ConfigMap
-#    apiVersion: v1
-#    metadata:
-#      name: config
-#      namespace: moon
-#    data:
-#      service.json: |
-#        {
+  - kind: ConfigMap
+    apiVersion: v1
+    metadata:
+      name: config
+      namespace: moon
+    data:
+      service.json: |
+        {
+          "kernelCaps": [ "SYS_ADMIN" ]
 #          "s3": {
 #            "endpoint": "https://storage.googleapis.com",
 #            "bucketName": "moon-test",
 #            "version": "S3v2"
 #          }
-#        }
+        }
 #
 #  - kind: Secret
 #    apiVersion: v1
