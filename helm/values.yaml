@@ -13,7 +13,10 @@ moon:
     enabled: false
     limits:
       cpu: "0.5"
-      memory: "512Mi"
+      memory: "128Mi"
+    requests:
+      cpu: "0.2"
+      memory: "128Mi"
   port: 4444
 
 moonAPI:
@@ -21,8 +24,11 @@ moonAPI:
   resources:
     enabled: false
     limits:
-      cpu: "0.5"
-      memory: "512Mi"
+      cpu: "0.25"
+      memory: "64Mi"
+    requests:
+      cpu: "0.05"
+      memory: "64Mi"
   port: 8888
 
 moonUI:
@@ -30,8 +36,11 @@ moonUI:
   resources:
     enabled: false
     limits:
-      cpu: "0.5"
-      memory: "512Mi"
+      cpu: "0.25"
+      memory: "64Mi"
+    requests:
+      cpu: "0.05"
+      memory: "64Mi"
   port: 8080
 
 resources:

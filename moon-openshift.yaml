@@ -135,7 +135,10 @@ objects:
             resources:
               limits:
                 cpu: "0.5"
-                memory: "512Mi"
+                memory: "128Mi"
+              requests:
+                cpu: "0.2"
+                memory: "128Mi"
             ports:
             - containerPort: 4444
             volumeMounts:
@@ -159,8 +162,11 @@ objects:
             args: ["-namespace", "${NAMESPACE}", "-license-file", "/license/license.key", "-listen", ":8888"]
             resources:
               limits:
-                cpu: "0.5"
-                memory: "512Mi"
+                cpu: "0.25"
+                memory: "64Mi"
+              requests:
+                cpu: "0.05"
+                memory: "64Mi"
             ports:
             - containerPort: 8888
             volumeMounts:
@@ -181,8 +187,11 @@ objects:
             args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
             resources:
               limits:
-                cpu: "0.5"
-                memory: "512Mi"
+                cpu: "0.25"
+                memory: "64Mi"
+              requests:
+                cpu: "0.05"
+                memory: "64Mi"
             ports:
             - name: selenoid-ui
               containerPort: 8080
