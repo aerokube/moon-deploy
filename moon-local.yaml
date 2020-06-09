@@ -131,7 +131,7 @@ spec:
       serviceAccountName: moon
       containers:
       - name: moon
-        image: aerokube/moon:latest
+        image: aerokube/moon:1.5.1
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-disable-cpu-limits", "-disable-memory-limits", "-service-account-name", "moon"]
         ports:
         - containerPort: 4444
@@ -152,7 +152,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:latest
+        image: aerokube/moon-api:1.5.1
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         ports:
         - containerPort: 8888
@@ -164,7 +164,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.9.1
+        image: aerokube/selenoid-ui:1.10.0
         args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
         ports:
         - name: selenoid-ui
