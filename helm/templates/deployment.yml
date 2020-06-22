@@ -41,7 +41,7 @@ spec:
         - "-memory-request"
         - {{ .Values.resources.memory.requests }}
 {{ end -}}
-{{- if .Values.moon.resources.enabled }}
+{{- if .Values.moon.resources }}
         resources:
 {{ toYaml .Values.moon.resources | indent 10 }}{{ end }}
         ports:
@@ -62,7 +62,7 @@ spec:
       - name: moon-api
         image: {{ .Values.moonAPI.image }}
         args: ["-namespace", "{{ .Release.Namespace }}", "-license-file", "/license/license.key", "-listen", ":{{ .Values.moonAPI.port }}"]
-{{- if .Values.moonAPI.resources.enabled }}
+{{- if .Values.moonAPI.resources }}
         resources:
 {{ toYaml .Values.moonAPI.resources | indent 10 }}{{ end }}
         ports:
@@ -76,7 +76,7 @@ spec:
       - name: moon-ui
         image: {{ .Values.moonUI.image }}
         args: ["-status-uri", "http://localhost:{{ .Values.moonAPI.port }}", "-webdriver-uri", "http://localhost:{{ .Values.moon.port }}"]
-{{- if .Values.moonUI.resources.enabled }}
+{{- if .Values.moonUI.resources }}
         resources:
 {{ toYaml .Values.moonUI.resources | indent 10 }}{{ end }}
         ports:

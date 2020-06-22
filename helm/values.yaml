@@ -10,7 +10,6 @@ createRoleBinding: true
 moon:
   image: aerokube/moon:1.5.1
   resources:
-    enabled: false
     limits:
       cpu: "0.5"
       memory: "128Mi"
@@ -22,7 +21,6 @@ moon:
 moonAPI:
   image: aerokube/moon-api:1.5.1
   resources:
-    enabled: false
     limits:
       cpu: "0.25"
       memory: "64Mi"
@@ -34,7 +32,6 @@ moonAPI:
 moonUI:
   image: aerokube/selenoid-ui:1.10.0
   resources:
-    enabled: false
     limits:
       cpu: "0.25"
       memory: "64Mi"
