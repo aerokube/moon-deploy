@@ -66,8 +66,16 @@ affinity: {}
 quota:
   browsers:
     firefox:
-      default: '75.0'
+      default: '77.0'
       versions:
+        '77.0':
+          image: selenoid/vnc_firefox:77.0
+          port: '4444'
+          path: "/wd/hub"
+        '76.0':
+          image: selenoid/vnc_firefox:76.0
+          port: '4444'
+          path: "/wd/hub"
         '75.0':
           image: selenoid/vnc_firefox:75.0
           port: '4444'
@@ -361,8 +369,11 @@ quota:
           port: '4444'
           path: "/wd/hub"
     chrome:
-      default: '81.0'
+      default: '83.0'
       versions:
+        '83.0':
+          image: selenoid/vnc_chrome:83.0
+          port: '4444'
         '81.0':
           image: selenoid/vnc_chrome:81.0
           port: '4444'
@@ -529,8 +540,11 @@ quota:
               cpu: '2'
               memory: '4Gi'
     opera:
-      default: '67.0'
+      default: '68.0'
       versions:
+        '68.0':
+          image: selenoid/vnc_opera:68.0
+          port: '4444'
         '67.0':
           image: selenoid/vnc_opera:67.0
           port: '4444'
