@@ -248,7 +248,7 @@ spec:
         - name: license-key
           mountPath: /license
           readOnly: true
-      - name: selenoid-ui
+      - name: moon-ui
         image: aerokube/selenoid-ui:1.10.0
         args:
         - -status-uri
@@ -264,7 +264,7 @@ spec:
         {{- end }}
         {{- end }}
         ports:
-        - name: selenoid-ui
+        - name: moon-ui
           containerPort: 8080
       volumes:
       - name: quota
