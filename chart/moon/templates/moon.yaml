@@ -1,0 +1,445 @@
+---
+apiVersion: v1
+kind: ServiceAccount
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: Role
+metadata:
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+rules:
+- apiGroups:
+  - ""
+  resources:
+  - pods
+  - pods/log
+  - secrets
+  - resourcequotas
+  verbs:
+  - get
+  - watch
+  - list
+  - create
+  - update
+  - patch
+  - delete
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: Role
+  name: {{ .Release.Name }}
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  namespace: {{ .Release.Namespace }}
+  name: {{ .Release.Name }}
+---
+kind: ResourceQuota
+apiVersion: v1
+metadata:
+  name: max-moon-sessions
+  namespace: {{ .Release.Namespace }}
+spec:
+  hard:
+    pods: "6"
+  scopes: ["NotTerminating"]
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+  {{- if .Values.moon.service.labels }}
+  labels:
+  {{- range $key, $value := .Values.moon.service.labels }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- end }}
+  {{- if .Values.moon.service.annotations }}
+  annotations:
+  {{- range $key, $value := .Values.moon.service.annotations }}
+    {{ $key }}: {{ $value | quote }}
+  {{- end }}
+  {{- end }}
+spec:
+  selector:
+    app: moon
+  ports:
+  - name: "moon"
+    protocol: TCP
+    port: 4444
+  - name: "moon-ui"
+    protocol: TCP
+    port: 8080
+  type: {{ .Values.moon.service.type }}
+  {{- with .Values.moon.service.externalIPs }}
+  externalIPs:
+  {{- range . }}
+  - {{ . }}
+  {{- end }}
+  {{- end }}
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: {{ .Release.Name }}-browsers
+  namespace: {{ .Release.Namespace }}
+spec:
+  selector:
+    moon: browser
+  clusterIP: None
+  publishNotReadyAddresses: true
+---
+{{- if .Values.moon.ingress.enabled }}
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    {{- range $key, $value := .Values.moon.ingress.annotations }}
+    {{ $key }}: {{ $value | quote }}
+    {{- end }}
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  rules:
+    - host: {{ .Values.moon.ingress.host }}
+      http:
+        paths:
+        {{- $releaseName := .Release.Name }}
+        {{- range $v := .Values.moon.ingress.paths }}
+          - path: {{ $v.path | quote }}
+            backend:
+              serviceName: {{ $releaseName }}
+              servicePort: {{ $v.port }}
+        {{- end }}
+---
+{{- end }}
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ .Release.Name }}
+  namespace: {{ .Release.Namespace }}
+spec:
+  replicas: {{ .Values.moon.replicas | default 2 }}
+  selector:
+    matchLabels:
+      app: moon
+  template:
+    metadata:
+      labels:
+        app: moon
+    spec:
+      serviceAccountName: {{ .Release.Name }}
+      containers:
+      - name: moon
+        image: aerokube/moon:{{ .Chart.AppVersion }}
+        args:
+        - -namespace
+        - {{ .Release.Namespace }}
+        - -license-file
+        - /license/license.key
+        - -service-account-name
+        - {{ .Release.Name }}
+        - -moon-url
+        - http://{{ .Release.Name }}:4444/wd/hub
+        - -domain-name
+        - {{ .Release.Name }}-browsers
+        {{- if .Values.moon.timeouts }}
+        {{- if .Values.moon.timeouts.sessionTimeout }}
+        - -timeout
+        - {{ .Values.moon.timeouts.sessionTimeout }}
+        {{- end }}
+        {{- if .Values.moon.timeouts.sessionAttemptTimeout }}
+        - -session-attempt-timeout
+        - {{ .Values.moon.timeouts.sessionAttemptTimeout }}
+        {{- end }}
+        {{- end }}
+        {{- if .Values.moon.enabled.resources }}
+        {{- if .Values.moon.browser }}
+        {{- if .Values.moon.browser.resources }}
+        {{- if .Values.moon.browser.resources.cpu }}
+        {{- if .Values.moon.browser.resources.cpu.limits }}
+        - -cpu-limit
+        - {{ .Values.moon.browser.resources.cpu.limits | quote }}
+        {{- end }}
+        {{- if .Values.moon.browser.resources.cpu.requests }}
+        - -cpu-request
+        - {{ .Values.moon.browser.resources.cpu.requests | quote }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- else }}
+        - -disable-cpu-limits
+        {{- end }}
+        {{- if .Values.moon.enabled.resources }}
+        {{- if .Values.moon.browser }}
+        {{- if .Values.moon.browser.resources }}
+        {{- if .Values.moon.browser.resources.memory }}
+        {{- if .Values.moon.browser.resources.memory.limits }}
+        - -memory-limit
+        - {{ .Values.moon.browser.resources.memory.limits | quote }}
+        {{- end }}
+        {{- if .Values.moon.browser.resources.memory.requests }}
+        - -memory-request
+        - {{ .Values.moon.browser.resources.memory.requests | quote }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        {{- else }}
+        - -disable-memory-limits
+        {{- end }}
+        {{- if .Values.moon.enabled.resources }}
+        {{- if .Values.moon.resources }}
+        resources:
+{{ toYaml .Values.moon.resources | indent 10 }}
+        {{- end }}
+        {{- end }}
+        ports:
+        - containerPort: 4444
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+          readOnly: true
+        - name: config
+          mountPath: /config
+          readOnly: true
+        - name: credentials
+          mountPath: /credentials
+          readOnly: true
+        - name: users
+          mountPath: /users
+          readOnly: true
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: moon-api
+        image: aerokube/moon-api:{{ .Chart.AppVersion }}
+        args:
+        - -namespace
+        - {{ .Release.Namespace }}
+        - -license-file
+        - /license/license.key
+        - -listen
+        - ":8888"
+        {{- if .Values.moon.enabled.resources }}
+        {{- if .Values.moon.api }}
+        {{- if .Values.moon.api.resources }}
+        resources:
+{{ toYaml .Values.moon.api.resources | indent 10 }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        ports:
+        - containerPort: 8888
+        volumeMounts:
+        - name: quota
+          mountPath: /quota
+          readOnly: true
+        - name: license-key
+          mountPath: /license
+          readOnly: true
+      - name: moon-ui
+        image: aerokube/selenoid-ui:1.10.0
+        args:
+        - -status-uri
+        - http://localhost:8888
+        - -webdriver-uri
+        - http://localhost:4444
+        {{- if .Values.moon.enabled.resources }}
+        {{- if .Values.moon.ui }}
+        {{- if .Values.moon.ui.resources }}
+        resources:
+{{ toYaml .Values.moon.ui.resources | indent 10 }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+        ports:
+        - name: moon-ui
+          containerPort: 8080
+      volumes:
+      - name: quota
+        configMap:
+          name: {{ .Release.Name }}-quota
+      - name: config
+        configMap:
+          name: {{ .Release.Name }}-config
+      - name: credentials
+        secret:
+          secretName: {{ .Release.Name }}-credentials
+      - name: users
+        secret:
+          secretName: {{ .Release.Name }}-users
+      - name: license-key
+        secret:
+          secretName: licensekey
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-credentials
+  namespace: {{ .Release.Namespace }}
+  labels:
+stringData:
+  s3.accessKey: "{{ if .Values.moon.config.s3 }}{{- if .Values.moon.config.s3.accessKey }}{{ .Values.moon.config.s3.accessKey }}{{ end }}{{ end }}"
+  s3.secretKey: "{{ if .Values.moon.config.s3 }}{{- if .Values.moon.config.s3.secretKey }}{{ .Values.moon.config.s3.secretKey }}{{ end }}{{ end }}"
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-config
+  namespace: {{ .Release.Namespace }}
+data:
+  service.json: |
+    { {{ $comma := false }}
+      {{- if .Values.moon.browser }}
+      {{- if .Values.moon.browser.annotations }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "annotations": {{ .Values.moon.browser.annotations | toJson }}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.moon.browser }}
+      {{- if .Values.moon.browser.labels }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "labels": {{ .Values.moon.browser.labels | toJson }}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.moon.config }}
+      {{- if .Values.moon.config.kernelCaps }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "kernelCaps": {{ .Values.moon.config.kernelCaps | toJson }}
+      {{- end }}
+      {{- end }}
+      {{- if .Values.moon.config.s3 }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "s3": {
+        {{- if true }}
+        {{- $comma := false }}
+        {{- if .Values.moon.config.s3.endpoint }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "endpoint": {{ .Values.moon.config.s3.endpoint | quote }}
+        {{- end }}
+        {{- if .Values.moon.config.s3.bucketName }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "bucketName": {{ .Values.moon.config.s3.bucketName | quote }}
+        {{- end }}
+        {{- if .Values.moon.config.s3.version }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "version": {{ .Values.moon.config.s3.version | quote }}
+        {{- end }}
+        {{- if .Values.moon.config.s3.keyPattern }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "keyPattern": {{ .Values.moon.config.s3.keyPattern | quote }}
+        {{- end }}
+        {{- end }}
+      }
+      {{- end }}
+      {{- if .Values.moon.config.images }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "images": {
+      {{- if true }}
+      {{- $comma := false }}
+      {{- range $k,$v := .Values.moon.config.images }}
+        {{- if $comma }},{{ end }}
+        {{ $k | quote }}: {
+          {{- $comma = true }}
+          {{- if true }}
+          {{- $comma := false }}
+          {{- if $v.image }}
+          {{- if $comma }},{{ end }}
+          {{- $comma = true }}
+          "image": {{ $v.image | quote }}
+          {{- end }}
+          {{- if $v.resources }}
+          {{- if $comma }},{{ end }}
+          {{- $comma = true }}
+          "resources": {
+            {{- if true }}
+            {{- $comma := false }}
+            {{- if $v.resources.limits }}
+            {{- if $comma }},{{ end }}
+            {{- $comma = true }}
+            "limits": {{ $v.resources.limits | toJson }}
+            {{- end }}
+            {{- if $v.resources.requests }}
+            {{- if $comma }},{{ end }}
+            {{- $comma = true }}
+            "requests": {{ $v.resources.requests | toJson }}
+            {{- end }}
+            {{- end }}
+          }
+          {{- end }}
+          {{- end }}
+        }
+      {{- end }}
+      {{- end }}
+      }
+      {{- end }}
+      {{- if .Values.moon.config.runAs }}
+      {{- if .Values.moon.config.runAs }}
+      {{- if $comma }},{{ end }}
+      {{- $comma = true }}
+      "runAs": {
+        {{- if true }}
+        {{- $comma := false }}
+        {{- if .Values.moon.config.runAs }}
+        {{- if .Values.moon.config.runAs.user }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "user": {{ .Values.moon.config.runAs.user }}
+        {{- end }}
+        {{- if .Values.moon.config.runAs.group }}
+        {{- if $comma }},{{ end }}
+        {{- $comma = true }}
+        "group": {{ .Values.moon.config.runAs.group }}
+        {{- end }}
+        {{- end }}
+        {{- end }}
+      }
+      {{- end }}
+      {{- end }}
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: {{ .Release.Name }}-quota
+  namespace: {{ .Release.Namespace }}
+data:
+{{- range $k,$v := .Values.moon.quota }}
+  {{ $k }}.json: |
+    {{ $v | toJson }}
+{{- end }}
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: {{ .Release.Name }}-users
+  namespace: {{ .Release.Namespace }}
+stringData:
+  users.htpasswd: "{{ .Values.moon.htpasswd }}"
+---
+apiVersion: v1
+kind: Secret
+metadata:
+  name: licensekey
+  namespace: {{ .Release.Namespace }}
+stringData:
+  license.key: "{{ .Values.moon.licenseKey }}"
