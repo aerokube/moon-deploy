@@ -11,11 +11,11 @@ moon:
 #  ##
 #  timeouts:
 #    ##
-#    ## Browser pod will be deleted after this timeout, if there was not comminication with it.
+#    ## Browser pod will be deleted after this timeout, if there was no comminication with it.
 #    ##
 #    sessionTimeout: 1m
 #    ##
-#    ## Browser pod will wait in queue until resources awailable.
+#    ## Browser pod will wait in queue until resources become awailable.
 #    ##
 #    sessionAttemptTimeout: 30m
 
@@ -149,7 +149,7 @@ moon:
 #            memory: 64Mi
 #
 #      ##
-#      ## Service container to upload log files when S3 enabled.
+#      ## Service container to upload log files when S3 is enabled.
 #      ##
 #      logger:
 #
@@ -170,7 +170,7 @@ moon:
 #            memory: 64Mi
 #
 #      ##
-#      ## Service container to record and upload video files when S3 enabled.
+#      ## Service container to record and upload video files when S3 is enabled.
 #      ##
 #      videoRecorder:
 #
@@ -196,12 +196,12 @@ moon:
 #  browser:
 #
 #    ##
-#    ## Additional annotations will be added to every browser pod.
+#    ## Additional annotations to be added to every browser pod.
 #    ##
 #    annotations: {}
 #
 #    ##
-#    ## Additional labels will be added to every browser pod.
+#    ## Additional labels to be added to every browser pod.
 #    ##
 #    labels: {}
 #
@@ -221,9 +221,20 @@ moon:
   ##
   quota:
     browsers:
-      firefox:
-        default: "77.0"
+      safari:
+        default: "13.0"
         versions:
+          "13.0":
+            image: browsers/safari:13.0
+            port: 4444
+            path: "/"
+      firefox:
+        default: "78.0"
+        versions:
+          "78.0":
+            image: selenoid/vnc_firefox:78.0
+            port: "4444"
+            path: "/wd/hub"
           "77.0":
             image: selenoid/vnc_firefox:77.0
             port: "4444"
@@ -696,8 +707,11 @@ moon:
                 cpu: "2"
                 memory: "4Gi"
       opera:
-        default: "68.0"
+        default: "69.0"
         versions:
+          "68.0":
+            image: selenoid/vnc_opera:69.0
+            port: "4444"
           "68.0":
             image: selenoid/vnc_opera:68.0
             port: "4444"
