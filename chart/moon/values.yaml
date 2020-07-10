@@ -226,7 +226,7 @@ moon:
         versions:
           "13.0":
             image: browsers/safari:13.0
-            port: 4444
+            port: "4444"
             path: "/"
       firefox:
         default: "78.0"
