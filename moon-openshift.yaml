@@ -248,9 +248,24 @@ objects:
     data:
       browsers.json: |
         {
-          "firefox": {
-            "default": "77.0",
+          "safari": {
+            "default": "13.0",
             "versions": {
+              "13.0": {
+                "image": "browsers/safari:13.0",
+                "port": "4444",
+                "path": "/"
+              }
+            }
+          },
+          "firefox": {
+            "default": "78.0",
+            "versions": {
+              "78.0": {
+                "image": "selenoid/vnc_firefox:78.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "77.0": {
                 "image": "selenoid/vnc_firefox:77.0",
                 "port": "4444",
@@ -774,8 +789,12 @@ objects:
             }
           },
           "opera": {
-            "default": "68.0",
+            "default": "69.0",
             "versions": {
+              "69.0": {
+                "image": "selenoid/vnc_opera:69.0",
+                "port": "4444"
+              },
               "68.0": {
                 "image": "selenoid/vnc_opera:68.0",
                 "port": "4444"
@@ -946,13 +965,13 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.6.0
+  value: aerokube/moon:1.6.1
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.6.0
+  value: aerokube/moon-api:1.6.1
   required: true
 
 - name: MOON_UI_IMAGE

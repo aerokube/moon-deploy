@@ -135,7 +135,7 @@ moon:
 #        ##
 #        ## Override default image.
 #        ##
-#        image: aerokube/defender:1.6.0
+#        image: aerokube/defender:1.6.1
 #
 #        ##
 #        ## Override default resources.
@@ -156,7 +156,7 @@ moon:
 #        ##
 #        ## Override default image.
 #        ##
-#        image: aerokube/logger:1.6.0
+#        image: aerokube/logger:1.6.1
 #
 #        ##
 #        ## Override default resources.
@@ -174,10 +174,10 @@ moon:
 #      ##
 #      videoRecorder:
 #
-#        ## 
+#        ##
 #        ## Override default image.
 #        ##
-#        image: aerokube/moon-video-recorder:1.6.0
+#        image: aerokube/moon-video-recorder:1.6.1
 #
 #        ##
 #        ## Override default resources.
@@ -709,7 +709,7 @@ moon:
       opera:
         default: "69.0"
         versions:
-          "68.0":
+          "69.0":
             image: selenoid/vnc_opera:69.0
             port: "4444"
           "68.0":
