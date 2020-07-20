@@ -63,8 +63,8 @@ moon:
   ## Moon entrypoint.
   ##
   service:
-    annotations:
-      one: "1"
+    annotations: {}
+    labels: {}
     type: LoadBalancer
 #    externalIPs: []
 
