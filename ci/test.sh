@@ -1,3 +1,3 @@
 #!/bin/bash
 
-helm lint --strict chart/moon
+helm lint chart/moon
