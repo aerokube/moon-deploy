@@ -1,0 +1,50 @@
+kind: pipeline
+type: docker
+name: moon-deploy-ci
+
+steps:
+
+- name: validate_chart
+  image: alpine/helm:3.2.4
+  commands:
+    - ./ci/test.sh
+  when:
+    branch: master
+    event: [push, tag, pull_request]
+
+- name: build_latest_chart
+  image: alpine/helm:3.2.4
+  commands:
+    - export OUTPUT_DIR="/tmp"
+    - ./ci/build.sh $OUTPUT_DIR latest
+  when:
+    branch: master
+    event: push
+
+- name: build_release_chart
+  image: alpine/helm:3.2.4
+  commands:
+    - export OUTPUT_DIR="/tmp"
+    - ./ci/build.sh $OUTPUT_DIR ${DRONE_TAG}
+    - ./ci/build.sh $OUTPUT_DIR latest-release
+  when:
+    branch: master
+    event: tag
+
+- name: upload
+  image: plugins/s3
+  settings:
+    endpoint:
+      from_secret: s3_endpoint
+    bucket:
+      from_secret: s3_bucket
+    access_key:
+      from_secret: s3_access_key
+    secret_key:
+      from_secret: s3_secret_key
+    source: /tmp/**/*
+    target: /
+    acl: public-read
+  when:
+    branch: master
+    event: [push, tag]
