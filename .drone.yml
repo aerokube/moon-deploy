@@ -10,6 +10,7 @@ steps:
 - name: validate_chart
   image: alpine/helm:3.2.4
   commands:
+    - pwd && ls -la
     - ./ci/test.sh
   when:
     branch: master
