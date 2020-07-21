@@ -2,15 +2,12 @@ kind: pipeline
 type: docker
 name: moon-deploy-ci
 
-workspace:
-  base: /apps
-
 steps:
 
 - name: validate_chart
   image: alpine/helm:3.2.4
   commands:
-    - /apps/ci/test.sh
+    - ./ci/test.sh
   when:
     branch: master
     event: [push, tag, pull_request]
@@ -19,7 +16,7 @@ steps:
   image: alpine/helm:3.2.4
   commands:
     - export OUTPUT_DIR="/tmp"
-    - /apps/ci/build.sh $OUTPUT_DIR latest
+    - ./ci/build.sh $OUTPUT_DIR latest
   when:
     branch: master
     event: push
@@ -28,8 +25,8 @@ steps:
   image: alpine/helm:3.2.4
   commands:
     - export OUTPUT_DIR="/tmp"
-    - /apps/ci/build.sh $OUTPUT_DIR ${DRONE_TAG}
-    - /apps/ci/build.sh $OUTPUT_DIR latest-release
+    - ./ci/build.sh $OUTPUT_DIR ${DRONE_TAG}
+    - ./ci/build.sh $OUTPUT_DIR latest-release
   when:
     branch: master
     event: tag

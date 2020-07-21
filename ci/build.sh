@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 CHARTS_REPO="https://charts.aerokube.com/"
 
