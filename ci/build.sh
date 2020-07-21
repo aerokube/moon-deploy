@@ -7,5 +7,5 @@ version=${2:-"latest"}
 mkdir -p ${output_dir}
 tar cvz -C chart -f ${output_dir}/moon-${version}.tgz moon
 cd ${output_dir}
-wget ${CHARTS_REPO}/index.yaml
-helm repo index --url ${CHARTS_REPO} --merge index.yaml
+wget ${CHARTS_REPO}/index.yaml || true
+helm repo index . --url ${CHARTS_REPO} --merge index.yaml
