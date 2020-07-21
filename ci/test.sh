@@ -1,3 +1,3 @@
-#!/bin/bash
+#!/bin/sh
 
 helm lint chart/moon
