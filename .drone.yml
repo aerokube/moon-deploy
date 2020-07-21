@@ -15,7 +15,7 @@ steps:
 - name: build_latest_chart
   image: alpine/helm:3.2.4
   commands:
-    - export OUTPUT_DIR="/tmp"
+    - export OUTPUT_DIR="output"
     - ./ci/build.sh $OUTPUT_DIR latest
   when:
     branch: master
@@ -24,7 +24,7 @@ steps:
 - name: build_release_chart
   image: alpine/helm:3.2.4
   commands:
-    - export OUTPUT_DIR="/tmp"
+    - export OUTPUT_DIR="output"
     - ./ci/build.sh $OUTPUT_DIR ${DRONE_TAG}
     - ./ci/build.sh $OUTPUT_DIR latest-release
   when:
@@ -36,13 +36,16 @@ steps:
   settings:
     endpoint:
       from_secret: s3_endpoint
+    region:
+      from_secret: s3_region
     bucket:
       from_secret: s3_bucket
     access_key:
       from_secret: s3_access_key
     secret_key:
       from_secret: s3_secret_key
-    source: /tmp/**/*
+    source: output/**/*
+    strip_prefix: output/
     target: /
     acl: public-read
   when:
