@@ -41,15 +41,15 @@ objects:
           port: 8080
       type: LoadBalancer # You may want to replace LoadBalancer with Ingress or Route: just comment this line and uncomment Ingress \ Route definition below
 
-   - apiVersion: v1
-     kind: Service
-     metadata:
-       name: browsers
-       namespace: moon
-     spec:
-       selector:
-         moon: browser
-       ports:
+  - apiVersion: v1
+    kind: Service
+    metadata:
+      name: browsers
+      namespace: moon
+    spec:
+      selector:
+        moon: browser
+      ports:
         - name: wd
           port: 4444
           protocol: TCP
@@ -58,8 +58,8 @@ objects:
           port: 5900
           protocol: TCP
           targetPort: 5900
-       clusterIP: None
-       publishNotReadyAddresses: true
+      clusterIP: None
+      publishNotReadyAddresses: true
 #       ports: # Uncomment the following lines if you have Openshift based on Kubernetes <1.13
 #         - name: wd
 #           port: 4444
