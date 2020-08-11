@@ -1,0 +1,17 @@
+name: test
+
+on:
+  pull_request:
+
+jobs:
+  golang:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: 'lint'
+        uses: karancode/yamllint-github-action@v2.0.0
+        with:
+          yamllint_comment: true
+        env:
+          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
