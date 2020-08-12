@@ -4,14 +4,18 @@ on:
   pull_request:
 
 jobs:
-  golang:
+  moon-deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
 
       - name: 'lint'
-        uses: karancode/yamllint-github-action@v2.0.0
-        with:
-          yamllint_comment: true
-        env:
-          GITHUB_ACCESS_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          wget https://github.com/instrumenta/kubeval/releases/latest/download/kubeval-linux-amd64.tar.gz
+          tar xf kubeval-linux-amd64.tar.gz
+          ./kubeval moon.yaml
+          ./kubeval moon-local.yaml
+          ./kubeval moon-monitor.yaml --ignore-missing-schemas
+          wget -O tools.zip https://artifacts-openshift-release-3-11.svc.ci.openshift.org/zips/openshift-origin-client-tools-v3.11.0-8f721f2-450-mac.zip
+          unzip tools.zip oc
+          ./oc process -f moon-openshift.yaml --local=true 2>&1 > /dev/null
