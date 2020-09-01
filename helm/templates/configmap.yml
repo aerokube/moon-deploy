@@ -1,0 +1,21 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: config
+  namespace: {{ .Release.Namespace }}
+data:
+  service.json: |
+    {
+      "kernelCaps": [ "SYS_ADMIN" ]
+    }
+---
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: quota
+  namespace: {{ .Release.Namespace }}
+data:
+{{- range $k,$v := .Values.quota }}
+  {{ $k }}.json: |
+    {{ $v | toJson }}
+{{- end }}

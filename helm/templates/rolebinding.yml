@@ -1,0 +1,15 @@
+{{- if .Values.createRoleBinding -}}
+apiVersion: rbac.authorization.k8s.io/v1
+kind: RoleBinding
+metadata:
+  name: moon
+  namespace: {{ .Release.Namespace }}
+roleRef:
+  kind: Role
+  name: moon
+  apiGroup: rbac.authorization.k8s.io
+subjects:
+- kind: ServiceAccount
+  namespace: {{ .Release.Namespace }}
+  name: default
+{{- end }}
