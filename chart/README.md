@@ -1,3 +1,5 @@
 ## Moon Helm Chart
 
-Moved to https://github.com/aerokube/charts.
+```
+$ helm upgrade --install --set=moon.enabled.resources=false service.externalIPs[0]=$(minikube ip) -n moon moon moon
+```
