@@ -259,8 +259,18 @@ objects:
             }
           },
           "firefox": {
-            "default": "78.0",
+            "default": "80.0",
             "versions": {
+              "80.0": {
+                "image": "selenoid/vnc_firefox:80.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "79.0": {
+                "image": "selenoid/vnc_firefox:79.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "78.0": {
                 "image": "selenoid/vnc_firefox:78.0",
                 "port": "4444",
@@ -644,8 +654,16 @@ objects:
             }
           },
           "chrome": {
-            "default": "83.0",
+            "default": "85.0",
             "versions": {
+              "85.0": {
+                "image": "selenoid/vnc_chrome:85.0",
+                "port": "4444"
+              },
+              "84.0": {
+                "image": "selenoid/vnc_chrome:84.0",
+                "port": "4444"
+              },
               "83.0": {
                 "image": "selenoid/vnc_chrome:83.0",
                 "port": "4444"
@@ -789,8 +807,12 @@ objects:
             }
           },
           "opera": {
-            "default": "69.0",
+            "default": "70.0",
             "versions": {
+              "70.0": {
+                "image": "selenoid/vnc_opera:70.0",
+                "port": "4444"
+              },
               "69.0": {
                 "image": "selenoid/vnc_opera:69.0",
                 "port": "4444"
