@@ -258,6 +258,16 @@ objects:
               }
             }
           },
+          "MicrosoftEdge": {
+            "default": "88.0",
+            "versions": {
+              "88.0": {
+                "image": "browsers/edge:88.0",
+                "port": "4444",
+                "path": "/"
+              }
+            }
+          },
           "firefox": {
             "default": "81.0",
             "versions": {
