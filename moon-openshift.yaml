@@ -1022,7 +1022,7 @@ parameters:
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.10.1
+  value: aerokube/selenoid-ui:1.10.2
   required: true
 
 - name: MOON_PODS
