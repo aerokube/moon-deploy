@@ -155,7 +155,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.10.1
+        image: aerokube/selenoid-ui:1.10.2
         args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
         ports:
         - name: selenoid-ui
@@ -235,8 +235,18 @@ data:
         }
       },
       "firefox": {
-        "default": "81.0",
+        "default": "83.0",
         "versions": {
+          "83.0": {
+            "image": "selenoid/vnc_firefox:83.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "82.0": {
+            "image": "selenoid/vnc_firefox:82.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "81.0": {
             "image": "selenoid/vnc_firefox:81.0",
             "port": "4444",
