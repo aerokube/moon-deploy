@@ -114,10 +114,12 @@ spec:
       labels:
         app: moon
     spec:
+      nodeSelector: 
+        "beta.kubernetes.io/os": linux
       containers:
       - name: moon
         image: aerokube/moon:1.7.1
-        args: ["-namespace", "moon", "-license-file", "/license/license.key"]
+        args: ["-namespace", "moon", "-license-file", "/license/license.key", "-moon-url", "http://epmoon.northeurope.cloudapp.azure.com:8080/wd/hub"]
         resources:
           limits:
             cpu: "0.5"
@@ -655,7 +657,20 @@ data:
         "versions": {
           "86.0": {
             "image": "selenoid/vnc_chrome:86.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "85.0": {
             "image": "selenoid/vnc_chrome:85.0",
