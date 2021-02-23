@@ -688,8 +688,13 @@ data:
         }
       },
       "MicrosoftEdge": {
-        "default": "89.0",
+        "default": "90.0",
         "versions": {
+          "90.0": {
+            "image": "browsers/edge:90.0",
+            "port": "4444",
+            "path": "/"
+          },
           "89.0": {
             "image": "browsers/edge:89.0",
             "port": "4444",
@@ -703,8 +708,13 @@ data:
         }
       },
       "firefox": {
-        "default": "84.0",
+        "default": "85.0",
         "versions": {
+          "85.0": {
+            "image": "selenoid/vnc_firefox:85.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "84.0": {
             "image": "selenoid/vnc_firefox:84.0",
             "port": "4444",
@@ -1283,8 +1293,12 @@ data:
         }
       },
       "opera": {
-        "default": "73.0",
+        "default": "74.0",
         "versions": {
+          "74.0": {
+            "image": "selenoid/vnc_opera:74.0",
+            "port": "4444"
+          },
           "73.0": {
             "image": "selenoid/vnc_opera:73.0",
             "port": "4444"
