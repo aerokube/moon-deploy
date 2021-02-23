@@ -1495,19 +1495,19 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.8.1
+  value: quay.io/aerokube/moon:1.8.2
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.8.1
+  value: quay.io/aerokube/moon-api:1.8.2
   required: true
 
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.10.2
+  value: quay.io/aerokube/selenoid-ui:1.10.3
   required: true
 
 - name: MOON_PODS
