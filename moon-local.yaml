@@ -122,7 +122,7 @@ spec:
       serviceAccountName: moon
       containers:
       - name: moon
-        image: aerokube/moon:1.8.1
+        image: aerokube/moon:1.8.2
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-disable-cpu-limits", "-disable-memory-limits", "-service-account-name", "moon"]
         ports:
         - containerPort: 4444
@@ -143,7 +143,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.8.1
+        image: aerokube/moon-api:1.8.2
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         ports:
         - containerPort: 8888
@@ -155,7 +155,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.10.2
+        image: aerokube/selenoid-ui:1.10.3
         args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
         ports:
         - name: selenoid-ui
@@ -674,8 +674,13 @@ data:
         }
       },
       "MicrosoftEdge": {
-        "default": "89.0",
+        "default": "90.0",
         "versions": {
+          "90.0": {
+            "image": "browsers/edge:90.0",
+            "port": "4444",
+            "path": "/"
+          },
           "89.0": {
             "image": "browsers/edge:89.0",
             "port": "4444",
@@ -689,8 +694,13 @@ data:
         }
       },
       "firefox": {
-        "default": "84.0",
+        "default": "85.0",
         "versions": {
+          "85.0": {
+            "image": "selenoid/vnc_firefox:85.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "84.0": {
             "image": "selenoid/vnc_firefox:84.0",
             "port": "4444",
@@ -1269,8 +1279,12 @@ data:
         }
       },
       "opera": {
-        "default": "73.0",
+        "default": "74.0",
         "versions": {
+          "74.0": {
+            "image": "selenoid/vnc_opera:74.0",
+            "port": "4444"
+          },
           "73.0": {
             "image": "selenoid/vnc_opera:73.0",
             "port": "4444"

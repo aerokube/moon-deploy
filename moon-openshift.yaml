@@ -708,8 +708,13 @@ objects:
             }
           },
           "MicrosoftEdge": {
-            "default": "89.0",
+            "default": "90.0",
             "versions": {
+              "90.0": {
+                "image": "browsers/edge:90.0",
+                "port": "4444",
+                "path": "/"
+              },
               "89.0": {
                 "image": "browsers/edge:89.0",
                 "port": "4444",
@@ -723,8 +728,13 @@ objects:
             }
           },
           "firefox": {
-            "default": "84.0",
+            "default": "85.0",
             "versions": {
+              "85.0": {
+                "image": "selenoid/vnc_firefox:85.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "84.0": {
                 "image": "selenoid/vnc_firefox:84.0",
                 "port": "4444",
@@ -1303,8 +1313,12 @@ objects:
             }
           },
           "opera": {
-            "default": "73.0",
+            "default": "74.0",
             "versions": {
+              "74.0": {
+                "image": "selenoid/vnc_opera:74.0",
+                "port": "4444"
+              },
               "73.0": {
                 "image": "selenoid/vnc_opera:73.0",
                 "port": "4444"
@@ -1495,19 +1509,19 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: aerokube/moon:1.8.1
+  value: quay.io/aerokube/moon:1.8.2
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: aerokube/moon-api:1.8.1
+  value: quay.io/aerokube/moon-api:1.8.2
   required: true
 
 - name: MOON_UI_IMAGE
   displayName: Moon-UI docker image
   description: Name of the image to be used.
-  value: aerokube/selenoid-ui:1.10.2
+  value: quay.io/aerokube/selenoid-ui:1.10.3
   required: true
 
 - name: MOON_PODS
