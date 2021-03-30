@@ -708,10 +708,15 @@ objects:
             }
           },
           "MicrosoftEdge": {
-            "default": "90.0",
+            "default": "91.0",
             "versions": {
               "90.0": {
                 "image": "browsers/edge:90.0",
+                "port": "4444",
+                "path": "/"
+              },
+              "91.0": {
+                "image": "browsers/edge:91.0",
                 "port": "4444",
                 "path": "/"
               },
@@ -728,8 +733,18 @@ objects:
             }
           },
           "firefox": {
-            "default": "85.0",
+            "default": "87.0",
             "versions": {
+              "87.0": {
+                "image": "selenoid/vnc_firefox:87.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "86.0": {
+                "image": "selenoid/vnc_firefox:86.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "85.0": {
                 "image": "selenoid/vnc_firefox:85.0",
                 "port": "4444",
@@ -1148,8 +1163,12 @@ objects:
             }
           },
           "chrome": {
-            "default": "88.0",
+            "default": "89.0",
             "versions": {
+              "89.0": {
+                "image": "selenoid/vnc_chrome:89.0",
+                "port": "4444"
+              },
               "88.0": {
                 "image": "selenoid/vnc_chrome:88.0",
                 "port": "4444"
@@ -1313,8 +1332,12 @@ objects:
             }
           },
           "opera": {
-            "default": "74.0",
+            "default": "75.0",
             "versions": {
+              "75.0": {
+                "image": "selenoid/vnc_opera:75.0",
+                "port": "4444"
+              },
               "74.0": {
                 "image": "selenoid/vnc_opera:74.0",
                 "port": "4444"
@@ -1509,13 +1532,13 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: quay.io/aerokube/moon:1.8.2
+  value: quay.io/aerokube/moon:1.8.3
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: quay.io/aerokube/moon-api:1.8.2
+  value: quay.io/aerokube/moon-api:1.8.3
   required: true
 
 - name: MOON_UI_IMAGE
