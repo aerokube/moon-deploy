@@ -92,6 +92,26 @@ spec:
 #            backend:
 #              serviceName: moon
 #              servicePort: 4444
+#          - path: /playwright
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
+#          - path: /cdtp
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
+#          - path: /download
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
+#          - path: /clipboard
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
+#          - path: /devtools
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
 #          - path: /
 #            backend:
 #              serviceName: moon
