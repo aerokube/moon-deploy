@@ -698,10 +698,15 @@ data:
   browsers.json: |
     {
       "safari": {
-        "default": "13.0",
+        "default": "14.0",
         "versions": {
+          "14.0": {
+            "image": "quay.io/browsers/safari:14.0",
+            "port": "4444",
+            "path": "/"
+          },
           "13.0": {
-            "image": "browsers/safari:13.0",
+            "image": "quay.io/browsers/safari:13.0",
             "port": "4444",
             "path": "/"
           }
@@ -711,622 +716,631 @@ data:
         "default": "91.0",
         "versions": {
           "91.0": {
-            "image": "browsers/edge:91.0",
+            "image": "quay.io/browsers/edge:91.0",
             "port": "4444",
             "path": "/"
           },
           "90.0": {
-            "image": "browsers/edge:90.0",
+            "image": "quay.io/browsers/edge:90.0",
             "port": "4444",
             "path": "/"
           },
           "89.0": {
-            "image": "browsers/edge:89.0",
+            "image": "quay.io/browsers/edge:89.0",
             "port": "4444",
             "path": "/"
           },
           "88.0": {
-            "image": "browsers/edge:88.0",
+            "image": "quay.io/browsers/edge:88.0",
             "port": "4444",
             "path": "/"
           }
         }
       },
       "firefox": {
-        "default": "87.0",
+        "default": "88.0",
         "versions": {
+          "88.0": {
+            "image": "quay.io/browsers/firefox:88.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "87.0": {
-            "image": "selenoid/vnc_firefox:87.0",
+            "image": "quay.io/browsers/firefox:87.0",
             "port": "4444",
             "path": "/wd/hub"
           },
           "86.0": {
-            "image": "selenoid/vnc_firefox:86.0",
+            "image": "quay.io/browsers/firefox:86.0",
             "port": "4444",
             "path": "/wd/hub"
           },
           "85.0": {
-            "image": "selenoid/vnc_firefox:85.0",
+            "image": "quay.io/browsers/firefox:85.0",
             "port": "4444",
             "path": "/wd/hub"
           },
           "84.0": {
-            "image": "selenoid/vnc_firefox:84.0",
+            "image": "quay.io/browsers/firefox:84.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "83.0": {
-            "image": "selenoid/vnc_firefox:83.0",
+            "image": "quay.io/browsers/firefox:83.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "82.0": {
-            "image": "selenoid/vnc_firefox:82.0",
+            "image": "quay.io/browsers/firefox:82.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "81.0": {
-            "image": "selenoid/vnc_firefox:81.0",
+            "image": "quay.io/browsers/firefox:81.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "80.0": {
-            "image": "selenoid/vnc_firefox:80.0",
+            "image": "quay.io/browsers/firefox:80.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "79.0": {
-            "image": "selenoid/vnc_firefox:79.0",
+            "image": "quay.io/browsers/firefox:79.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "78.0": {
-            "image": "selenoid/vnc_firefox:78.0",
+            "image": "quay.io/browsers/firefox:78.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "77.0": {
-            "image": "selenoid/vnc_firefox:77.0",
+            "image": "quay.io/browsers/firefox:77.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "76.0": {
-            "image": "selenoid/vnc_firefox:76.0",
+            "image": "quay.io/browsers/firefox:76.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "75.0": {
-            "image": "selenoid/vnc_firefox:75.0",
+            "image": "quay.io/browsers/firefox:75.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "74.0": {
-            "image": "selenoid/vnc_firefox:74.0",
+            "image": "quay.io/browsers/firefox:74.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "73.0": {
-            "image": "selenoid/vnc_firefox:73.0",
+            "image": "quay.io/browsers/firefox:73.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "72.0": {
-            "image": "selenoid/vnc_firefox:72.0",
+            "image": "quay.io/browsers/firefox:72.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "71.0": {
-            "image": "selenoid/vnc_firefox:71.0",
+            "image": "quay.io/browsers/firefox:71.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "70.0": {
-            "image": "selenoid/vnc_firefox:70.0",
+            "image": "quay.io/browsers/firefox:70.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "69.0": {
-            "image": "selenoid/vnc_firefox:69.0",
+            "image": "quay.io/browsers/firefox:69.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "68.0": {
-            "image": "selenoid/vnc_firefox:68.0",
+            "image": "quay.io/browsers/firefox:68.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "67.0": {
-            "image": "selenoid/vnc_firefox:67.0",
+            "image": "quay.io/browsers/firefox:67.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "66.0": {
-            "image": "selenoid/vnc_firefox:66.0",
+            "image": "quay.io/browsers/firefox:66.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "65.0": {
-            "image": "selenoid/vnc_firefox:65.0",
+            "image": "quay.io/browsers/firefox:65.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "64.0": {
-            "image": "selenoid/vnc_firefox:64.0",
+            "image": "quay.io/browsers/firefox:64.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "63.0": {
-            "image": "selenoid/vnc_firefox:63.0",
+            "image": "quay.io/browsers/firefox:63.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "62.0": {
-            "image": "selenoid/vnc_firefox:62.0",
+            "image": "quay.io/browsers/firefox:62.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "61.0": {
-            "image": "selenoid/vnc_firefox:61.0",
+            "image": "quay.io/browsers/firefox:61.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "60.0": {
-            "image": "selenoid/vnc_firefox:60.0",
+            "image": "quay.io/browsers/firefox:60.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "59.0": {
-            "image": "selenoid/vnc_firefox:59.0",
+            "image": "quay.io/browsers/firefox:59.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "58.0": {
-            "image": "selenoid/vnc_firefox:58.0",
+            "image": "quay.io/browsers/firefox:58.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "57.0": {
-            "image": "selenoid/vnc_firefox:57.0",
+            "image": "quay.io/browsers/firefox:57.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "56.0": {
-            "image": "selenoid/vnc_firefox:56.0",
+            "image": "quay.io/browsers/firefox:56.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "55.0": {
-            "image": "selenoid/vnc_firefox:55.0",
+            "image": "quay.io/browsers/firefox:55.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "54.0": {
-            "image": "selenoid/vnc_firefox:54.0",
+            "image": "quay.io/browsers/firefox:54.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "53.0": {
-            "image": "selenoid/vnc_firefox:53.0",
+            "image": "quay.io/browsers/firefox:53.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "52.0": {
-            "image": "selenoid/vnc_firefox:52.0",
+            "image": "quay.io/browsers/firefox:52.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "51.0": {
-            "image": "selenoid/vnc_firefox:51.0",
+            "image": "quay.io/browsers/firefox:51.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "50.0": {
-            "image": "selenoid/vnc_firefox:50.0",
+            "image": "quay.io/browsers/firefox:50.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "49.0": {
-            "image": "selenoid/vnc_firefox:49.0",
+            "image": "quay.io/browsers/firefox:49.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "48.0": {
-            "image": "selenoid/vnc_firefox:48.0",
+            "image": "quay.io/browsers/firefox:48.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "47.0": {
-            "image": "selenoid/vnc_firefox:47.0",
+            "image": "quay.io/browsers/firefox:47.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "46.0": {
-            "image": "selenoid/vnc_firefox:46.0",
+            "image": "quay.io/browsers/firefox:46.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "45.0": {
-            "image": "selenoid/vnc_firefox:45.0",
+            "image": "quay.io/browsers/firefox:45.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "44.0": {
-            "image": "selenoid/vnc_firefox:44.0",
+            "image": "quay.io/browsers/firefox:44.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "43.0": {
-            "image": "selenoid/vnc_firefox:43.0",
+            "image": "quay.io/browsers/firefox:43.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "42.0": {
-            "image": "selenoid/vnc_firefox:42.0",
+            "image": "quay.io/browsers/firefox:42.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "41.0": {
-            "image": "selenoid/vnc_firefox:41.0",
+            "image": "quay.io/browsers/firefox:41.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "40.0": {
-            "image": "selenoid/vnc_firefox:40.0",
+            "image": "quay.io/browsers/firefox:40.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "39.0": {
-            "image": "selenoid/vnc_firefox:39.0",
+            "image": "quay.io/browsers/firefox:39.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "38.0": {
-            "image": "selenoid/vnc_firefox:38.0",
+            "image": "quay.io/browsers/firefox:38.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "37.0": {
-            "image": "selenoid/vnc_firefox:37.0",
+            "image": "quay.io/browsers/firefox:37.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "36.0": {
-            "image": "selenoid/vnc_firefox:36.0",
+            "image": "quay.io/browsers/firefox:36.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "35.0": {
-            "image": "selenoid/vnc_firefox:35.0",
+            "image": "quay.io/browsers/firefox:35.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "34.0": {
-            "image": "selenoid/vnc_firefox:34.0",
+            "image": "quay.io/browsers/firefox:34.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "33.0": {
-            "image": "selenoid/vnc_firefox:33.0",
+            "image": "quay.io/browsers/firefox:33.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "32.0": {
-            "image": "selenoid/vnc_firefox:32.0",
+            "image": "quay.io/browsers/firefox:32.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "31.0": {
-            "image": "selenoid/vnc_firefox:31.0",
+            "image": "quay.io/browsers/firefox:31.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "30.0": {
-            "image": "selenoid/vnc_firefox:30.0",
+            "image": "quay.io/browsers/firefox:30.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "29.0": {
-            "image": "selenoid/vnc_firefox:29.0",
+            "image": "quay.io/browsers/firefox:29.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "28.0": {
-            "image": "selenoid/vnc_firefox:28.0",
+            "image": "quay.io/browsers/firefox:28.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "27.0": {
-            "image": "selenoid/vnc_firefox:27.0",
+            "image": "quay.io/browsers/firefox:27.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "26.0": {
-            "image": "selenoid/vnc_firefox:26.0",
+            "image": "quay.io/browsers/firefox:26.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "25.0": {
-            "image": "selenoid/vnc_firefox:25.0",
+            "image": "quay.io/browsers/firefox:25.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "24.0": {
-            "image": "selenoid/vnc_firefox:24.0",
+            "image": "quay.io/browsers/firefox:24.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "23.0": {
-            "image": "selenoid/vnc_firefox:23.0",
+            "image": "quay.io/browsers/firefox:23.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "22.0": {
-            "image": "selenoid/vnc_firefox:22.0",
+            "image": "quay.io/browsers/firefox:22.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "21.0": {
-            "image": "selenoid/vnc_firefox:21.0",
+            "image": "quay.io/browsers/firefox:21.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "20.0": {
-            "image": "selenoid/vnc_firefox:20.0",
+            "image": "quay.io/browsers/firefox:20.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "19.0": {
-            "image": "selenoid/vnc_firefox:19.0",
+            "image": "quay.io/browsers/firefox:19.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "18.0": {
-            "image": "selenoid/vnc_firefox:18.0",
+            "image": "quay.io/browsers/firefox:18.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "17.0": {
-            "image": "selenoid/vnc_firefox:17.0",
+            "image": "quay.io/browsers/firefox:17.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "16.0": {
-            "image": "selenoid/vnc_firefox:16.0",
+            "image": "quay.io/browsers/firefox:16.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "15.0": {
-            "image": "selenoid/vnc_firefox:15.0",
+            "image": "quay.io/browsers/firefox:15.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "14.0": {
-            "image": "selenoid/vnc_firefox:14.0",
+            "image": "quay.io/browsers/firefox:14.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "13.0": {
-            "image": "selenoid/vnc_firefox:13.0",
+            "image": "quay.io/browsers/firefox:13.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "12.0": {
-            "image": "selenoid/vnc_firefox:12.0",
+            "image": "quay.io/browsers/firefox:12.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "11.0": {
-            "image": "selenoid/vnc_firefox:11.0",
+            "image": "quay.io/browsers/firefox:11.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "10.0": {
-            "image": "selenoid/vnc_firefox:10.0",
+            "image": "quay.io/browsers/firefox:10.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "9.0": {
-            "image": "selenoid/vnc_firefox:9.0",
+            "image": "quay.io/browsers/firefox:9.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "8.0": {
-            "image": "selenoid/vnc_firefox:8.0",
+            "image": "quay.io/browsers/firefox:8.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "7.0": {
-            "image": "selenoid/vnc_firefox:7.0",
+            "image": "quay.io/browsers/firefox:7.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "6.0": {
-            "image": "selenoid/vnc_firefox:6.0",
+            "image": "quay.io/browsers/firefox:6.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "5.0": {
-            "image": "selenoid/vnc_firefox:5.0",
+            "image": "quay.io/browsers/firefox:5.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "4.0": {
-            "image": "selenoid/vnc_firefox:4.0",
+            "image": "quay.io/browsers/firefox:4.0-1",
             "port": "4444",
             "path": "/wd/hub"
           },
           "3.6": {
-            "image": "selenoid/vnc_firefox:3.6",
+            "image": "quay.io/browsers/firefox:3.6-1",
             "port": "4444",
             "path": "/wd/hub"
           }
         }
       },
       "chrome": {
-        "default": "89.0",
+        "default": "90.0",
         "versions": {
+          "90.0": {
+            "image": "quay.io/browsers/chrome:90.0",
+            "port": "4444"
+          },
           "89.0": {
-            "image": "selenoid/vnc_chrome:89.0",
+            "image": "quay.io/browsers/chrome:89.0",
             "port": "4444"
           },
           "88.0": {
-            "image": "selenoid/vnc_chrome:88.0",
+            "image": "quay.io/browsers/chrome:88.0-1",
             "port": "4444"
           },
           "87.0": {
-            "image": "selenoid/vnc_chrome:87.0",
+            "image": "quay.io/browsers/chrome:87.0-1",
             "port": "4444"
           },
           "86.0": {
-            "image": "selenoid/vnc_chrome:86.0",
+            "image": "quay.io/browsers/chrome:86.0-1",
             "port": "4444"
           },
           "85.0": {
-            "image": "selenoid/vnc_chrome:85.0",
+            "image": "quay.io/browsers/chrome:85.0-1",
             "port": "4444"
           },
           "84.0": {
-            "image": "selenoid/vnc_chrome:84.0",
+            "image": "quay.io/browsers/chrome:84.0-1",
             "port": "4444"
           },
           "83.0": {
-            "image": "selenoid/vnc_chrome:83.0",
+            "image": "quay.io/browsers/chrome:83.0-1",
             "port": "4444"
           },
           "81.0": {
-            "image": "selenoid/vnc_chrome:81.0",
+            "image": "quay.io/browsers/chrome:81.0-1",
             "port": "4444"
           },
           "80.0": {
-            "image": "selenoid/vnc_chrome:80.0",
+            "image": "quay.io/browsers/chrome:80.0-1",
             "port": "4444"
           },
           "79.0": {
-            "image": "selenoid/vnc_chrome:79.0",
+            "image": "quay.io/browsers/chrome:79.0-1",
             "port": "4444"
           },
           "78.0": {
-            "image": "selenoid/vnc_chrome:78.0",
+            "image": "quay.io/browsers/chrome:78.0-1",
             "port": "4444"
           },
           "77.0": {
-            "image": "selenoid/vnc_chrome:77.0",
+            "image": "quay.io/browsers/chrome:77.0-1",
             "port": "4444"
           },
           "76.0": {
-            "image": "selenoid/vnc_chrome:76.0",
+            "image": "quay.io/browsers/chrome:76.0-1",
             "port": "4444"
           },
           "75.0": {
-            "image": "selenoid/vnc_chrome:75.0",
+            "image": "quay.io/browsers/chrome:75.0-1",
             "port": "4444"
           },
           "74.0": {
-            "image": "selenoid/vnc_chrome:74.0",
+            "image": "quay.io/browsers/chrome:74.0-1",
             "port": "4444"
           },
           "73.0": {
-            "image": "selenoid/vnc_chrome:73.0",
+            "image": "quay.io/browsers/chrome:73.0-1",
             "port": "4444"
           },
           "72.0": {
-            "image": "selenoid/vnc_chrome:72.0",
+            "image": "quay.io/browsers/chrome:72.0-1",
             "port": "4444"
           },
           "71.0": {
-            "image": "selenoid/vnc_chrome:71.0",
+            "image": "quay.io/browsers/chrome:71.0-1",
             "port": "4444"
           },
           "70.0": {
-            "image": "selenoid/vnc_chrome:70.0",
+            "image": "quay.io/browsers/chrome:70.0-1",
             "port": "4444"
           },
           "69.0": {
-            "image": "selenoid/vnc_chrome:69.0",
+            "image": "quay.io/browsers/chrome:69.0-1",
             "port": "4444"
           },
           "68.0": {
-            "image": "selenoid/vnc_chrome:68.0",
+            "image": "quay.io/browsers/chrome:68.0-1",
             "port": "4444"
           },
           "67.0": {
-            "image": "selenoid/vnc_chrome:67.0",
+            "image": "quay.io/browsers/chrome:67.0-1",
             "port": "4444"
           },
           "66.0": {
-            "image": "selenoid/vnc_chrome:66.0",
+            "image": "quay.io/browsers/chrome:66.0-1",
             "port": "4444"
           },
           "65.0": {
-            "image": "selenoid/vnc_chrome:65.0",
+            "image": "quay.io/browsers/chrome:65.0-1",
             "port": "4444"
           },
           "64.0": {
-            "image": "selenoid/vnc_chrome:64.0",
+            "image": "quay.io/browsers/chrome:64.0-1",
             "port": "4444"
           },
           "63.0": {
-            "image": "selenoid/vnc_chrome:63.0",
+            "image": "quay.io/browsers/chrome:63.0-1",
             "port": "4444"
           },
           "62.0": {
-            "image": "selenoid/vnc_chrome:62.0",
+            "image": "quay.io/browsers/chrome:62.0-1",
             "port": "4444"
           },
           "61.0": {
-            "image": "selenoid/vnc_chrome:61.0",
+            "image": "quay.io/browsers/chrome:61.0-1",
             "port": "4444"
           },
           "60.0": {
-            "image": "selenoid/vnc_chrome:60.0",
+            "image": "quay.io/browsers/chrome:60.0-1",
             "port": "4444"
           },
           "59.0": {
-            "image": "selenoid/vnc_chrome:59.0",
+            "image": "quay.io/browsers/chrome:59.0",
             "port": "4444"
           },
           "58.0": {
-            "image": "selenoid/vnc_chrome:58.0",
+            "image": "quay.io/browsers/chrome:58.0",
             "port": "4444"
           },
           "57.0": {
-            "image": "selenoid/vnc_chrome:57.0",
+            "image": "quay.io/browsers/chrome:57.0",
             "port": "4444"
           },
           "56.0": {
-            "image": "selenoid/vnc_chrome:56.0",
+            "image": "quay.io/browsers/chrome:56.0",
             "port": "4444"
           },
           "55.0": {
-            "image": "selenoid/vnc_chrome:55.0",
+            "image": "quay.io/browsers/chrome:55.0",
             "port": "4444"
           },
           "54.0": {
-            "image": "selenoid/vnc_chrome:54.0",
+            "image": "quay.io/browsers/chrome:54.0",
             "port": "4444"
           },
           "53.0": {
-            "image": "selenoid/vnc_chrome:53.0",
+            "image": "quay.io/browsers/chrome:53.0",
             "port": "4444"
           },
           "52.0": {
-            "image": "selenoid/vnc_chrome:52.0",
+            "image": "quay.io/browsers/chrome:52.0",
             "port": "4444"
           },
           "51.0": {
-            "image": "selenoid/vnc_chrome:51.0",
+            "image": "quay.io/browsers/chrome:51.0",
             "port": "4444"
           },
           "50.0": {
-            "image": "selenoid/vnc_chrome:50.0",
+            "image": "quay.io/browsers/chrome:50.0",
             "port": "4444"
           },
           "49.0": {
-            "image": "selenoid/vnc_chrome:49.0",
+            "image": "quay.io/browsers/chrome:49.0",
             "port": "4444"
           },
           "48.0": {
-            "image": "selenoid/vnc_chrome:48.0",
+            "image": "quay.io/browsers/chrome:48.0",
             "port": "4444"
           }
         }
@@ -1335,171 +1349,171 @@ data:
         "default": "75.0",
         "versions": {
           "75.0": {
-            "image": "selenoid/vnc_opera:75.0",
+            "image": "quay.io/browsers/opera:75.0",
             "port": "4444"
           },
           "74.0": {
-            "image": "selenoid/vnc_opera:74.0",
+            "image": "quay.io/browsers/opera:74.0",
             "port": "4444"
           },
           "73.0": {
-            "image": "selenoid/vnc_opera:73.0",
+            "image": "quay.io/browsers/opera:73.0-1",
             "port": "4444"
           },
           "72.0": {
-            "image": "selenoid/vnc_opera:72.0",
+            "image": "quay.io/browsers/opera:72.0-1",
             "port": "4444"
           },
           "71.0": {
-            "image": "selenoid/vnc_opera:71.0",
+            "image": "quay.io/browsers/opera:71.0-1",
             "port": "4444"
           },
           "70.0": {
-            "image": "selenoid/vnc_opera:70.0",
+            "image": "quay.io/browsers/opera:70.0-1",
             "port": "4444"
           },
           "69.0": {
-            "image": "selenoid/vnc_opera:69.0",
+            "image": "quay.io/browsers/opera:69.0-1",
             "port": "4444"
           },
           "68.0": {
-            "image": "selenoid/vnc_opera:68.0",
+            "image": "quay.io/browsers/opera:68.0-1",
             "port": "4444"
           },
           "67.0": {
-            "image": "selenoid/vnc_opera:67.0",
+            "image": "quay.io/browsers/opera:67.0-1",
             "port": "4444"
           },
           "66.0": {
-            "image": "selenoid/vnc_opera:66.0",
+            "image": "quay.io/browsers/opera:66.0-1",
             "port": "4444"
           },
           "65.0": {
-            "image": "selenoid/vnc_opera:65.0",
+            "image": "quay.io/browsers/opera:65.0-1",
             "port": "4444"
           },
           "64.0": {
-            "image": "selenoid/vnc_opera:64.0",
+            "image": "quay.io/browsers/opera:64.0-1",
             "port": "4444"
           },
           "63.0": {
-            "image": "selenoid/vnc_opera:63.0",
+            "image": "quay.io/browsers/opera:63.0-1",
             "port": "4444"
           },
           "62.0": {
-            "image": "selenoid/vnc_opera:62.0",
+            "image": "quay.io/browsers/opera:62.0",
             "port": "4444"
           },
           "60.0": {
-            "image": "selenoid/vnc_opera:60.0",
+            "image": "quay.io/browsers/opera:60.0",
             "port": "4444"
           },
           "58.0": {
-            "image": "selenoid/vnc_opera:58.0",
+            "image": "quay.io/browsers/opera:58.0",
             "port": "4444"
           },
           "57.0": {
-            "image": "selenoid/vnc_opera:57.0",
+            "image": "quay.io/browsers/opera:57.0",
             "port": "4444"
           },
           "56.0": {
-            "image": "selenoid/vnc_opera:56.0",
+            "image": "quay.io/browsers/opera:56.0",
             "port": "4444"
           },
           "55.0": {
-            "image": "selenoid/vnc_opera:55.0",
+            "image": "quay.io/browsers/opera:55.0",
             "port": "4444"
           },
           "54.0": {
-            "image": "selenoid/vnc_opera:54.0",
+            "image": "quay.io/browsers/opera:54.0",
             "port": "4444"
           },
           "53.0": {
-            "image": "selenoid/vnc_opera:53.0",
+            "image": "quay.io/browsers/opera:53.0",
             "port": "4444"
           },
           "52.0": {
-            "image": "selenoid/vnc_opera:52.0",
+            "image": "quay.io/browsers/opera:52.0",
             "port": "4444"
           },
           "51.0": {
-            "image": "selenoid/vnc_opera:51.0",
+            "image": "quay.io/browsers/opera:51.0",
             "port": "4444"
           },
           "50.0": {
-            "image": "selenoid/vnc_opera:50.0",
+            "image": "quay.io/browsers/opera:50.0",
             "port": "4444"
           },
           "49.0": {
-            "image": "selenoid/vnc_opera:49.0",
+            "image": "quay.io/browsers/opera:49.0",
             "port": "4444"
           },
           "48.0": {
-            "image": "selenoid/vnc_opera:48.0",
+            "image": "quay.io/browsers/opera:48.0",
             "port": "4444"
           },
           "47.0": {
-            "image": "selenoid/vnc_opera:47.0",
+            "image": "quay.io/browsers/opera:47.0",
             "port": "4444"
           },
           "46.0": {
-            "image": "selenoid/vnc_opera:46.0",
+            "image": "quay.io/browsers/opera:46.0",
             "port": "4444"
           },
           "45.0": {
-            "image": "selenoid/vnc_opera:45.0",
+            "image": "quay.io/browsers/opera:45.0",
             "port": "4444"
           },
           "44.0": {
-            "image": "selenoid/vnc_opera:44.0",
+            "image": "quay.io/browsers/opera:44.0",
             "port": "4444"
           },
           "43.0": {
-            "image": "selenoid/vnc_opera:43.0",
+            "image": "quay.io/browsers/opera:43.0",
             "port": "4444"
           },
           "42.0": {
-            "image": "selenoid/vnc_opera:42.0",
+            "image": "quay.io/browsers/opera:42.0",
             "port": "4444"
           },
           "41.0": {
-            "image": "selenoid/vnc_opera:41.0",
+            "image": "quay.io/browsers/opera:41.0",
             "port": "4444"
           },
           "40.0": {
-            "image": "selenoid/vnc_opera:40.0",
+            "image": "quay.io/browsers/opera:40.0",
             "port": "4444"
           },
           "39.0": {
-            "image": "selenoid/vnc_opera:39.0",
+            "image": "quay.io/browsers/opera:39.0",
             "port": "4444"
           },
           "38.0": {
-            "image": "selenoid/vnc_opera:38.0",
+            "image": "quay.io/browsers/opera:38.0",
             "port": "4444"
           },
           "37.0": {
-            "image": "selenoid/vnc_opera:37.0",
+            "image": "quay.io/browsers/opera:37.0",
             "port": "4444"
           },
           "36.0": {
-            "image": "selenoid/vnc_opera:36.0",
+            "image": "quay.io/browsers/opera:36.0",
             "port": "4444"
           },
           "35.0": {
-            "image": "selenoid/vnc_opera:35.0",
+            "image": "quay.io/browsers/opera:35.0",
             "port": "4444"
           },
           "34.0": {
-            "image": "selenoid/vnc_opera:34.0",
+            "image": "quay.io/browsers/opera:34.0",
             "port": "4444"
           },
           "33.0": {
-            "image": "selenoid/vnc_opera:33.0",
+            "image": "quay.io/browsers/opera:33.0",
             "port": "4444"
           },
           "12.16": {
-            "image": "selenoid/vnc:opera_12.16",
+            "image": "quay.io/browsers/opera:12.16-1",
             "port": "4444",
             "path": "/wd/hub"
           }
