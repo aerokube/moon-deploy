@@ -93,6 +93,10 @@ spec:
 #            backend:
 #              serviceName: moon
 #              servicePort: 4444
+#          - path: /cypress
+#            backend:
+#              serviceName: moon
+#              servicePort: 4444
 #          - path: /playwright
 #            backend:
 #              serviceName: moon
