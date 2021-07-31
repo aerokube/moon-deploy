@@ -89,7 +89,7 @@ spec:
       serviceAccountName: moon-monitor
       containers:
         - name: moon-monitor
-          image: aerokube/moon-monitor:1.9.0
+          image: aerokube/moon-monitor:1.9.1
           args:
             - -namespace # -namespace flag specifies namespace where Moon is running
             - moon
