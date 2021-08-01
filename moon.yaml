@@ -753,8 +753,13 @@ data:
         }
       },
       "firefox": {
-        "default": "89.0",
+        "default": "90.0",
         "versions": {
+          "90.0": {
+            "image": "quay.io/browsers/firefox:90.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "89.0": {
             "image": "quay.io/browsers/firefox:89.0",
             "port": "4444",
@@ -1193,8 +1198,12 @@ data:
         }
       },
       "chrome": {
-        "default": "91.0",
+        "default": "92.0",
         "versions": {
+          "92.0": {
+            "image": "quay.io/browsers/chrome:92.0",
+            "port": "4444"
+          },
           "91.0": {
             "image": "quay.io/browsers/chrome:91.0",
             "port": "4444"
