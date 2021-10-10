@@ -106,7 +106,7 @@ spec:
       serviceAccountName: moon
       containers:
       - name: moon
-        image: aerokube/moon:1.9.1
+        image: aerokube/moon:1.9.2
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-disable-cpu-limits", "-disable-memory-limits", "-service-account-name", "moon"]
         ports:
         - containerPort: 4444
@@ -127,7 +127,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.9.1
+        image: aerokube/moon-api:1.9.2
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         ports:
         - containerPort: 8888
@@ -139,7 +139,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: selenoid-ui
-        image: aerokube/selenoid-ui:1.10.3
+        image: aerokube/selenoid-ui:1.10.4
         args: ["-status-uri", "http://localhost:8888", "-webdriver-uri", "http://localhost:4444"]
         ports:
         - name: selenoid-ui
@@ -663,8 +663,18 @@ data:
         }
       },
       "MicrosoftEdge": {
-        "default": "93.0",
+        "default": "95.0",
         "versions": {
+          "95.0": {
+            "image": "quay.io/browsers/edge:95.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "94.0": {
+            "image": "quay.io/browsers/edge:94.0",
+            "port": "4444",
+            "path": "/"
+          },
           "93.0": {
             "image": "quay.io/browsers/edge:93.0",
             "port": "4444",
@@ -1153,8 +1163,12 @@ data:
         }
       },
       "chrome": {
-        "default": "93.0",
+        "default": "94.0",
         "versions": {
+          "94.0": {
+            "image": "quay.io/browsers/chrome:94.0",
+            "port": "4444"
+          },
           "93.0": {
             "image": "quay.io/browsers/chrome:93.0",
             "port": "4444"
@@ -1338,8 +1352,16 @@ data:
         }
       },
       "opera": {
-        "default": "78.0",
+        "default": "80.0",
         "versions": {
+          "80.0": {
+            "image": "quay.io/browsers/opera:80.0",
+            "port": "4444"
+          },
+          "79.0": {
+            "image": "quay.io/browsers/opera:79.0",
+            "port": "4444"
+          },
           "78.0": {
             "image": "quay.io/browsers/opera:78.0",
             "port": "4444"
