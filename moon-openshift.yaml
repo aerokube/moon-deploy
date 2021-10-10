@@ -737,8 +737,18 @@ objects:
             }
           },
           "MicrosoftEdge": {
-            "default": "93.0",
+            "default": "95.0",
             "versions": {
+              "95.0": {
+                "image": "quay.io/browsers/edge:95.0",
+                "port": "4444",
+                "path": "/"
+              },
+              "94.0": {
+                "image": "quay.io/browsers/edge:94.0",
+                "port": "4444",
+                "path": "/"
+              },
               "93.0": {
                 "image": "quay.io/browsers/edge:93.0",
                 "port": "4444",
@@ -1222,8 +1232,12 @@ objects:
             }
           },
           "chrome": {
-            "default": "93.0",
+            "default": "94.0",
             "versions": {
+              "94.0": {
+                "image": "quay.io/browsers/chrome:94.0",
+                "port": "4444"
+              },
               "93.0": {
                 "image": "quay.io/browsers/chrome:93.0",
                 "port": "4444"
@@ -1407,8 +1421,16 @@ objects:
             }
           },
           "opera": {
-            "default": "78.0",
+            "default": "80.0",
             "versions": {
+              "80.0": {
+                "image": "quay.io/browsers/opera:80.0",
+                "port": "4444"
+              },
+              "79.0": {
+                "image": "quay.io/browsers/opera:79.0",
+                "port": "4444"
+              },
               "78.0": {
                 "image": "quay.io/browsers/opera:78.0",
                 "port": "4444"
