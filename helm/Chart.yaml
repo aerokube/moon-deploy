@@ -1,5 +1,0 @@
-apiVersion: v1
-appVersion: "1.7.1"
-description: Moon deployment Helm chart
-name: moon
-version: 1.7.1
