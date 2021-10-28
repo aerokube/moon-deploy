@@ -1226,35 +1226,139 @@ data:
         "versions": {
           "94.0": {
             "image": "quay.io/browsers/chrome:94.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "93.0": {
             "image": "quay.io/browsers/chrome:93.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "92.0": {
             "image": "quay.io/browsers/chrome:92.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "91.0": {
             "image": "quay.io/browsers/chrome:91.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "90.0": {
             "image": "quay.io/browsers/chrome:90.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "89.0": {
             "image": "quay.io/browsers/chrome:89.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "88.0": {
             "image": "quay.io/browsers/chrome:88.0-1",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "87.0": {
             "image": "quay.io/browsers/chrome:87.0-1",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {                              
+              "limits": {                               
+                "cpu": "2",                             
+                "memory": "2Gi"                         
+              },
+              "requests": {                             
+                "cpu": "500m",                          
+                "memory": "1Gi"                         
+              }
+            }
           },
           "86.0": {
             "image": "quay.io/browsers/chrome:86.0-1",
