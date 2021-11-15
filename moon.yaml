@@ -139,7 +139,7 @@ spec:
     spec:
       containers:
       - name: moon
-        image: aerokube/moon:1.9.2
+        image: aerokube/moon:1.9.3
         args: ["-namespace", "moon", "-license-file", "/license/license.key"]
         resources:
           limits:
@@ -167,7 +167,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.9.2
+        image: aerokube/moon-api:1.9.3
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         resources:
           limits:
@@ -703,8 +703,13 @@ data:
   browsers.json: |
     {
       "safari": {
-        "default": "14.0",
+        "default": "15.0",
         "versions": {
+          "15.0": {
+            "image": "quay.io/browsers/safari:15.0",
+            "port": "4444",
+            "path": "/"
+          },
           "14.0": {
             "image": "quay.io/browsers/safari:14.0",
             "port": "4444",
@@ -763,8 +768,18 @@ data:
         }
       },
       "firefox": {
-        "default": "92.0",
+        "default": "94.0",
         "versions": {
+          "94.0": {
+            "image": "quay.io/browsers/firefox:94.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "93.0": {
+            "image": "quay.io/browsers/firefox:93.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "92.0": {
             "image": "quay.io/browsers/firefox:92.0",
             "port": "4444",
@@ -1218,8 +1233,12 @@ data:
         }
       },
       "chrome": {
-        "default": "94.0",
+        "default": "95.0",
         "versions": {
+          "95.0": {
+            "image": "quay.io/browsers/chrome:95.0",
+            "port": "4444"
+          },
           "94.0": {
             "image": "quay.io/browsers/chrome:94.0",
             "port": "4444"
@@ -1407,8 +1426,12 @@ data:
         }
       },
       "opera": {
-        "default": "80.0",
+        "default": "81.0",
         "versions": {
+          "81.0": {
+            "image": "quay.io/browsers/opera:81.0",
+            "port": "4444"
+          },
           "80.0": {
             "image": "quay.io/browsers/opera:80.0",
             "port": "4444"
