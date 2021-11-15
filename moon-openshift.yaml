@@ -722,8 +722,13 @@ objects:
       browsers.json: |
         {
           "safari": {
-            "default": "14.0",
+            "default": "15.0",
             "versions": {
+              "15.0": {
+                "image": "quay.io/browsers/safari:15.0",
+                "port": "4444",
+                "path": "/"
+              },
               "14.0": {
                 "image": "quay.io/browsers/safari:14.0",
                 "port": "4444",
@@ -782,8 +787,18 @@ objects:
             }
           },
           "firefox": {
-            "default": "92.0",
+            "default": "94.0",
             "versions": {
+              "94.0": {
+                "image": "quay.io/browsers/firefox:94.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "93.0": {
+                "image": "quay.io/browsers/firefox:93.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "92.0": {
                 "image": "quay.io/browsers/firefox:92.0",
                 "port": "4444",
@@ -1232,8 +1247,12 @@ objects:
             }
           },
           "chrome": {
-            "default": "94.0",
+            "default": "95.0",
             "versions": {
+              "95.0": {
+                "image": "quay.io/browsers/chrome:95.0",
+                "port": "4444"
+              },
               "94.0": {
                 "image": "quay.io/browsers/chrome:94.0",
                 "port": "4444"
@@ -1421,8 +1440,12 @@ objects:
             }
           },
           "opera": {
-            "default": "80.0",
+            "default": "81.0",
             "versions": {
+              "81.0": {
+                "image": "quay.io/browsers/opera:81.0",
+                "port": "4444"
+              },
               "80.0": {
                 "image": "quay.io/browsers/opera:80.0",
                 "port": "4444"
