@@ -45,7 +45,7 @@ objects:
     kind: Service
     metadata:
       name: browsers
-      namespace: moon
+      namespace: ${NAMESPACE}
     spec:
       selector:
         moon: browser
@@ -76,7 +76,7 @@ objects:
 #      annotations:
 #        kubernetes.io/ingress.class: nginx
 #      name: moon
-#      namespace: moon
+#      namespace: ${NAMESPACE}
 #    spec:
 #      rules:
 #        - host: moon.example.com # Replace with correct cluster FQDN
@@ -240,7 +240,7 @@ objects:
     apiVersion: v1
     metadata:
       name: config
-      namespace: moon
+      namespace: ${NAMESPACE}
     data:
       service.json: |
         {
