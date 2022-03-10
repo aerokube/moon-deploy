@@ -45,7 +45,7 @@ objects:
     kind: Service
     metadata:
       name: browsers
-      namespace: moon
+      namespace: ${NAMESPACE}
     spec:
       selector:
         moon: browser
@@ -76,7 +76,7 @@ objects:
 #      annotations:
 #        kubernetes.io/ingress.class: nginx
 #      name: moon
-#      namespace: moon
+#      namespace: ${NAMESPACE}
 #    spec:
 #      rules:
 #        - host: moon.example.com # Replace with correct cluster FQDN
@@ -240,7 +240,7 @@ objects:
     apiVersion: v1
     metadata:
       name: config
-      namespace: moon
+      namespace: ${NAMESPACE}
     data:
       service.json: |
         {
@@ -722,8 +722,13 @@ objects:
       browsers.json: |
         {
           "safari": {
-            "default": "14.0",
+            "default": "15.0",
             "versions": {
+              "15.0": {
+                "image": "quay.io/browsers/safari:15.0",
+                "port": "4444",
+                "path": "/"
+              },
               "14.0": {
                 "image": "quay.io/browsers/safari:14.0",
                 "port": "4444",
@@ -737,8 +742,18 @@ objects:
             }
           },
           "MicrosoftEdge": {
-            "default": "95.0",
+            "default": "97.0",
             "versions": {
+              "97.0": {
+                "image": "quay.io/browsers/edge:97.0",
+                "port": "4444",
+                "path": "/"
+              },
+              "96.0": {
+                "image": "quay.io/browsers/edge:96.0",
+                "port": "4444",
+                "path": "/"
+              },
               "95.0": {
                 "image": "quay.io/browsers/edge:95.0",
                 "port": "4444",
@@ -782,8 +797,28 @@ objects:
             }
           },
           "firefox": {
-            "default": "92.0",
+            "default": "96.0",
             "versions": {
+              "96.0": {
+                "image": "quay.io/browsers/firefox:96.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "95.0": {
+                "image": "quay.io/browsers/firefox:95.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "94.0": {
+                "image": "quay.io/browsers/firefox:94.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
+              "93.0": {
+                "image": "quay.io/browsers/firefox:93.0",
+                "port": "4444",
+                "path": "/wd/hub"
+              },
               "92.0": {
                 "image": "quay.io/browsers/firefox:92.0",
                 "port": "4444",
@@ -1232,8 +1267,20 @@ objects:
             }
           },
           "chrome": {
-            "default": "94.0",
+            "default": "97.0",
             "versions": {
+              "97.0": {
+                "image": "quay.io/browsers/chrome:97.0",
+                "port": "4444"
+              },
+              "96.0": {
+                "image": "quay.io/browsers/chrome:96.0",
+                "port": "4444"
+              },
+              "95.0": {
+                "image": "quay.io/browsers/chrome:95.0",
+                "port": "4444"
+              },
               "94.0": {
                 "image": "quay.io/browsers/chrome:94.0",
                 "port": "4444"
@@ -1421,8 +1468,20 @@ objects:
             }
           },
           "opera": {
-            "default": "80.0",
+            "default": "83.0",
             "versions": {
+              "83.0": {
+                "image": "quay.io/browsers/opera:83.0",
+                "port": "4444"
+              },
+              "82.0": {
+                "image": "quay.io/browsers/opera:82.0",
+                "port": "4444"
+              },
+              "81.0": {
+                "image": "quay.io/browsers/opera:81.0",
+                "port": "4444"
+              },
               "80.0": {
                 "image": "quay.io/browsers/opera:80.0",
                 "port": "4444"
@@ -1641,13 +1700,13 @@ parameters:
 - name: MOON_IMAGE
   displayName: Moon docker image
   description: Name of the image to be used.
-  value: quay.io/aerokube/moon:1.9.2
+  value: quay.io/aerokube/moon:1.9.6
   required: true
 
 - name: MOON_API_IMAGE
   displayName: Moon-API docker image
   description: Name of the image to be used.
-  value: quay.io/aerokube/moon-api:1.9.2
+  value: quay.io/aerokube/moon-api:1.9.6
   required: true
 
 - name: MOON_UI_IMAGE

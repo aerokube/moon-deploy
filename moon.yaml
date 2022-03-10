@@ -143,7 +143,7 @@ spec:
         "beta.kubernetes.io/os": linux
       containers:
       - name: moon
-        image: aerokube/moon:1.9.2
+        image: aerokube/moon:1.9.6
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-moon-url", "http://epmoon.northeurope.cloudapp.azure.com:8080/wd/hub"]
         resources:
           limits:
@@ -171,7 +171,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.9.2
+        image: aerokube/moon-api:1.9.6
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         resources:
           limits:
@@ -707,8 +707,13 @@ data:
   browsers.json: |
     {
       "safari": {
-        "default": "14.0",
+        "default": "15.0",
         "versions": {
+          "15.0": {
+            "image": "quay.io/browsers/safari:15.0",
+            "port": "4444",
+            "path": "/"
+          },
           "14.0": {
             "image": "quay.io/browsers/safari:14.0",
             "port": "4444",
@@ -722,8 +727,18 @@ data:
         }
       },
       "MicrosoftEdge": {
-        "default": "95.0",
+        "default": "97.0",
         "versions": {
+          "97.0": {
+            "image": "quay.io/browsers/edge:97.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "96.0": {
+            "image": "quay.io/browsers/edge:96.0",
+            "port": "4444",
+            "path": "/"
+          },
           "95.0": {
             "image": "quay.io/browsers/edge:95.0",
             "port": "4444",
@@ -767,8 +782,28 @@ data:
         }
       },
       "firefox": {
-        "default": "92.0",
+        "default": "96.0",
         "versions": {
+          "96.0": {
+            "image": "quay.io/browsers/firefox:96.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "95.0": {
+            "image": "quay.io/browsers/firefox:95.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "94.0": {
+            "image": "quay.io/browsers/firefox:94.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "93.0": {
+            "image": "quay.io/browsers/firefox:93.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "92.0": {
             "image": "quay.io/browsers/firefox:92.0",
             "port": "4444",
@@ -1222,8 +1257,20 @@ data:
         }
       },
       "chrome": {
-        "default": "94.0",
+        "default": "97.0",
         "versions": {
+          "97.0": {
+            "image": "quay.io/browsers/chrome:97.0",
+            "port": "4444"
+          },
+          "96.0": {
+            "image": "quay.io/browsers/chrome:96.0",
+            "port": "4444"
+          },
+          "95.0": {
+            "image": "quay.io/browsers/chrome:95.0",
+            "port": "4444"
+          },
           "94.0": {
             "image": "quay.io/browsers/chrome:94.0",
             "port": "4444",
@@ -1528,8 +1575,20 @@ data:
         }
       },
       "opera": {
-        "default": "80.0",
+        "default": "83.0",
         "versions": {
+          "83.0": {
+            "image": "quay.io/browsers/opera:83.0",
+            "port": "4444"
+          },
+          "82.0": {
+            "image": "quay.io/browsers/opera:82.0",
+            "port": "4444"
+          },
+          "81.0": {
+            "image": "quay.io/browsers/opera:81.0",
+            "port": "4444"
+          },
           "80.0": {
             "image": "quay.io/browsers/opera:80.0",
             "port": "4444"
