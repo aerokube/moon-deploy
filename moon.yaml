@@ -1261,15 +1261,54 @@ data:
         "versions": {
           "97.0": {
             "image": "quay.io/browsers/chrome:97.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
+              },
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
+              }
+            }
           },
           "96.0": {
             "image": "quay.io/browsers/chrome:96.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
+              },
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
+              }
+            }
           },
           "95.0": {
             "image": "quay.io/browsers/chrome:95.0",
-            "port": "4444"
+            "port": "4444",
+            "nodeSelector": {
+              "beta.kubernetes.io/os": "linux"
+            },
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
+              },
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
+              }
+            }
           },
           "94.0": {
             "image": "quay.io/browsers/chrome:94.0",
@@ -1277,14 +1316,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1294,14 +1333,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1311,14 +1350,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1328,14 +1367,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1345,14 +1384,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1362,14 +1401,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1379,14 +1418,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1396,14 +1435,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
@@ -1413,14 +1452,14 @@ data:
             "nodeSelector": {
               "beta.kubernetes.io/os": "linux"
             },
-            "resources": {                              
-              "limits": {                               
-                "cpu": "2",                             
-                "memory": "2Gi"                         
+            "resources": {
+              "limits": {
+                "cpu": "2",
+                "memory": "2Gi"
               },
-              "requests": {                             
-                "cpu": "500m",                          
-                "memory": "1Gi"                         
+              "requests": {
+                "cpu": "500m",
+                "memory": "1Gi"
               }
             }
           },
