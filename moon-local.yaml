@@ -106,7 +106,7 @@ spec:
       serviceAccountName: moon
       containers:
       - name: moon
-        image: aerokube/moon:1.9.6
+        image: aerokube/moon:1.9.7
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-disable-cpu-limits", "-disable-memory-limits", "-service-account-name", "moon"]
         ports:
         - containerPort: 4444
@@ -127,7 +127,7 @@ spec:
           mountPath: /license
           readOnly: true
       - name: moon-api
-        image: aerokube/moon-api:1.9.6
+        image: aerokube/moon-api:1.9.7
         args: ["-namespace", "moon", "-license-file", "/license/license.key", "-listen", ":8888"]
         ports:
         - containerPort: 8888
@@ -668,8 +668,53 @@ data:
         }
       },
       "MicrosoftEdge": {
-        "default": "97.0",
+        "default": "106.0",
         "versions": {
+          "106.0": {
+            "image": "quay.io/browsers/edge:106.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "105.0": {
+            "image": "quay.io/browsers/edge:105.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "104.0": {
+            "image": "quay.io/browsers/edge:104.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "103.0": {
+            "image": "quay.io/browsers/edge:103.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "102.0": {
+            "image": "quay.io/browsers/edge:102.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "101.0": {
+            "image": "quay.io/browsers/edge:101.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "100.0": {
+            "image": "quay.io/browsers/edge:100.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "99.0": {
+            "image": "quay.io/browsers/edge:99.0",
+            "port": "4444",
+            "path": "/"
+          },
+          "98.0": {
+            "image": "quay.io/browsers/edge:98.0",
+            "port": "4444",
+            "path": "/"
+          },
           "97.0": {
             "image": "quay.io/browsers/edge:97.0",
             "port": "4444",
@@ -723,8 +768,58 @@ data:
         }
       },
       "firefox": {
-        "default": "96.0",
+        "default": "106.0",
         "versions": {
+          "106.0": {
+            "image": "quay.io/browsers/firefox:106.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "105.0": {
+            "image": "quay.io/browsers/firefox:105.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "104.0": {
+            "image": "quay.io/browsers/firefox:104.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "103.0": {
+            "image": "quay.io/browsers/firefox:103.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "102.0": {
+            "image": "quay.io/browsers/firefox:102.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "101.0": {
+            "image": "quay.io/browsers/firefox:101.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "100.0": {
+            "image": "quay.io/browsers/firefox:100.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "99.0": {
+            "image": "quay.io/browsers/firefox:99.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "98.0": {
+            "image": "quay.io/browsers/firefox:98.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
+          "97.0": {
+            "image": "quay.io/browsers/firefox:97.0",
+            "port": "4444",
+            "path": "/wd/hub"
+          },
           "96.0": {
             "image": "quay.io/browsers/firefox:96.0",
             "port": "4444",
@@ -1198,8 +1293,44 @@ data:
         }
       },
       "chrome": {
-        "default": "97.0",
+        "default": "106.0",
         "versions": {
+          "106.0": {
+            "image": "quay.io/browsers/chrome:106.0",
+            "port": "4444"
+          },
+          "105.0": {
+            "image": "quay.io/browsers/chrome:105.0",
+            "port": "4444"
+          },
+          "104.0": {
+            "image": "quay.io/browsers/chrome:104.0",
+            "port": "4444"
+          },
+          "103.0": {
+            "image": "quay.io/browsers/chrome:103.0",
+            "port": "4444"
+          },
+          "102.0": {
+            "image": "quay.io/browsers/chrome:102.0",
+            "port": "4444"
+          },
+          "101.0": {
+            "image": "quay.io/browsers/chrome:101.0",
+            "port": "4444"
+          },
+          "100.0": {
+            "image": "quay.io/browsers/chrome:100.0",
+            "port": "4444"
+          },
+          "99.0": {
+            "image": "quay.io/browsers/chrome:99.0",
+            "port": "4444"
+          },
+          "98.0": {
+            "image": "quay.io/browsers/chrome:98.0",
+            "port": "4444"
+          },
           "97.0": {
             "image": "quay.io/browsers/chrome:97.0",
             "port": "4444"
@@ -1399,8 +1530,40 @@ data:
         }
       },
       "opera": {
-        "default": "83.0",
+        "default": "91.0",
         "versions": {
+          "91.0": {
+            "image": "quay.io/browsers/opera:91.0",
+            "port": "4444"
+          },
+          "90.0": {
+            "image": "quay.io/browsers/opera:90.0",
+            "port": "4444"
+          },
+          "89.0": {
+            "image": "quay.io/browsers/opera:89.0",
+            "port": "4444"
+          },
+          "88.0": {
+            "image": "quay.io/browsers/opera:88.0",
+            "port": "4444"
+          },
+          "87.0": {
+            "image": "quay.io/browsers/opera:87.0",
+            "port": "4444"
+          },
+          "86.0": {
+            "image": "quay.io/browsers/opera:86.0",
+            "port": "4444"
+          },
+          "85.0": {
+            "image": "quay.io/browsers/opera:85.0",
+            "port": "4444"
+          },
+          "84.0": {
+            "image": "quay.io/browsers/opera:84.0",
+            "port": "4444"
+          },
           "83.0": {
             "image": "quay.io/browsers/opera:83.0",
             "port": "4444"
