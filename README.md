@@ -1,6 +1,6 @@
 # Moon Deployment Configuration
 
-This repository contains Moon 1.x deployment manifests only. If you need Moon 2.x - use our [charts](https://github.com/aerokube/charts).
+This repository contains Moon 1.x deployment manifests only. If you need Moon 2.x (recommended in most cases) - use our [charts](https://github.com/aerokube/charts).
 
 ## One Command Deployment
 
